@@ -1,0 +1,46 @@
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_timer_regs.h"
+#include "altera_avalon_pio_regs.h"
+#include "io.h"
+#include "alt_types.h"
+
+// Define la base del temporizador
+#define TIMER_BASE TIMER_0_BASE
+
+// Función para inicializar el temporizador
+void init_timer() {
+    // Establece el valor de carga del temporizador para que se desborde cada segundo
+    IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_BASE, 0xFFFF); // Parte baja del periodo
+    IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_BASE, 0xFFFF); // Parte alta del periodo
+
+    // Configura el temporizador para que sea de 32 bits y que se reinicie automáticamente
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |
+                                      ALTERA_AVALON_TIMER_CONTROL_START_MSK |
+                                      ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+}
+
+// Función para manejar la interrupción del temporizador
+void timer_isr(void* context) {
+    // Limpia la interrupción del temporizador
+    IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0x1);
+
+    // Enciende el LED como una señal de la interrupción
+    IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 0xFF); // Enciende todos los LEDs
+}
+
+int main() {
+    // Inicializa el temporizador
+    init_timer();
+
+    // Configura la interrupción del temporizador
+    // Nota: Dependiendo del sistema de interrupciones, puede que necesites configurar el controlador de interrupciones aquí
+
+    while (1) {
+        // En el bucle principal puedes hacer otras tareas
+        // El manejo del temporizador se realiza en la ISR (Interrupt Service Routine)
+    }
+
+    return 0;
+}
+

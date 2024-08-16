@@ -1,0 +1,6 @@
+22:32:24 **** Clean-only build of configuration Nios II for project TimerWithClock_bsp ****
+wsl make clean 
+[BSP clean complete]
+
+22:32:24 Build Finished (took 309ms)
+

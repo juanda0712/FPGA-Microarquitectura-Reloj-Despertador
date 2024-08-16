@@ -1,0 +1,9 @@
+db/
+incremental_db/
+.qsys_edit/
+*.elf
+*.map
+*.obj
+*.o
+*.hex
+*.bin

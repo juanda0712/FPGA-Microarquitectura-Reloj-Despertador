@@ -1,0 +1,46 @@
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_timer_regs.h"
+#include "altera_avalon_pio_regs.h"
+#include "io.h"
+#include "alt_types.h"
+
+// Definiciones de dirección del temporizador y LED
+#define TIMER_BASE        TIMER_0_BASE
+
+
+// Función para inicializar el temporizador
+void init_timer() {
+    // Configurar el temporizador para que cuente hacia abajo desde el valor de carga
+    IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_BASE, (alt_u16)(TIMER_0_LOAD_VALUE & 0xFFFF));
+    IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_BASE, (alt_u16)((TIMER_0_LOAD_VALUE >> 16) & 0xFFFF));
+
+    // Configurar el temporizador para que genere una interrupción periódica
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, ALTERA_AVALON_TIMER_CONTROL_CONT_MSK | ALTERA_AVALON_TIMER_CONTROL_START_MSK);
+}
+
+// Función principal
+int main() {
+    // Inicializar el temporizador
+    init_timer();
+
+    // Variable para controlar el estado del LED
+    alt_u32 led_value = 0;
+
+    while (1) {
+        // Leer el estado del temporizador
+        alt_u32 timer_status = IORD_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE);
+
+        // Verificar si el temporizador ha generado una interrupción
+        if (timer_status & ALTERA_AVALON_TIMER_STATUS_TO_MSK) {
+            // Alternar el estado del LED
+            led_value ^= 0x03FF;  // Alternar entre 10 LEDs
+            IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, led_value);
+
+            // Reiniciar el temporizador
+            IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, ALTERA_AVALON_TIMER_STATUS_TO_MSK);
+        }
+    }
+    return 0;
+}
+

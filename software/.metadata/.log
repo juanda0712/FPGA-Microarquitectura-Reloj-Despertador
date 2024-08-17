@@ -1,4 +1,4 @@
-!SESSION 2024-08-15 22:31:22.139 -----------------------------------------------
+!SESSION 2024-08-16 14:26:00.092 -----------------------------------------------
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_392
 java.vendor=Temurin
@@ -6,7 +6,7 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/23.1std/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/23.1std/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 
-!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2024-08-15 22:31:36.935
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2024-08-16 14:26:22.495
 !MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
 !STACK 0
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
@@ -25,19 +25,19 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
 	... 9 more
 
-!ENTRY org.eclipse.cdt.core 1 0 2024-08-15 22:32:27.508
-!MESSAGE Indexed 'TimerWithClock_bsp' (82 sources, 189 headers) in 3.54 sec: 6,015 declarations; 9,290 references; 16 unresolved inclusions; 3 syntax errors; 51 unresolved names (0.33%)
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-16 17:20:10.819
+!MESSAGE Indexed 'TimeWithClock_bsp' (82 sources, 189 headers) in 3.62 sec: 6,178 declarations; 9,317 references; 45 unresolved inclusions; 4 syntax errors; 88 unresolved names (0.56%)
 
-!ENTRY org.eclipse.cdt.core 1 0 2024-08-15 22:32:28.355
-!MESSAGE Indexed 'TimerWithClock' (1 sources, 0 headers) in 0.007 sec: 1 declarations; 1 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-16 17:20:11.750
+!MESSAGE Indexed 'TimeWithClock' (1 sources, 0 headers) in 0.006 sec: 1 declarations; 1 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:33:43.304
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 17:27:47.153
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:33:44.859
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 17:27:48.776
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2024-08-15 22:34:21.841
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2024-08-16 17:28:13.786
 !MESSAGE Internal Error
 !STACK 0
 org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
@@ -50,80 +50,113 @@ org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
 	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
 	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:45:55.239
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 17:29:02.539
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:45:56.760
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 17:29:04.102
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:48:49.288
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 17:48:48.839
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:48:50.866
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 17:48:50.427
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:56:55.194
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 18:57:48.942
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 22:56:56.752
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 18:57:50.493
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:14:33.327
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:11:18.871
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:14:34.881
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:11:20.415
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:18:41.864
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:16:03.322
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:18:43.335
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:16:04.904
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:33:28.943
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:17:10.091
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:33:30.487
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:17:11.644
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:38:11.962
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:33:09.605
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:38:13.481
+!ENTRY com.altera.sbtgui.launch 4 4 2024-08-16 19:33:33.221
+!MESSAGE Target request failed: Failed to interrupt.
+!STACK 1
+org.eclipse.debug.core.DebugException: Target request failed: Failed to interrupt.
+	at org.eclipse.debug.core.Launch.terminate(Launch.java:259)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.cleanupExistingLaunches(AbstractNios2CLaunchDelegate.java:249)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.handleMultipleLaunches(AbstractNios2CLaunchDelegate.java:213)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:176)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.debug.core 4 5010 2024-08-16 19:33:33.222
+!MESSAGE Target request failed: Failed to interrupt.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:33:33.821
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:33:38.924
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:47:45.004
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:38:54.404
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:47:46.648
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:38:55.886
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:52:58.098
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:41:43.189
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:52:59.605
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:41:44.694
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:57:55.898
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:43:50.092
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-15 23:57:57.382
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:43:51.589
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 00:05:19.528
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:56:55.558
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 00:05:21.019
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:56:57.092
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 00:08:30.840
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:58:26.592
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 00:08:32.468
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 19:58:28.088
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 00:10:05.275
-!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock/TimerWithClock.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 20:14:31.645
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 00:10:06.786
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 20:14:33.230
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 20:17:04.554
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 20:17:06.089
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 20:33:40.448
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimeWithClock/TimeWithClock.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2024-08-16 20:33:41.982
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]

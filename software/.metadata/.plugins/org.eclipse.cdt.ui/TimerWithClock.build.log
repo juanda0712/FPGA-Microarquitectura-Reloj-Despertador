@@ -1,9 +1,0 @@
-00:10:03 **** Incremental Build of configuration Nios II for project TimerWithClock ****
-wsl make all 
-Info: Building /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock_bsp/
-make --no-print-directory -C /mnt/c/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/software/TimerWithClock_bsp/
-[BSP build complete]
-[TimerWithClock build complete]
-
-00:10:04 Build Finished (took 1s.290ms)
-

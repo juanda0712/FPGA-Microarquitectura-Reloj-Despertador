@@ -4,13 +4,16 @@
 
 `timescale 1 ps / 1 ps
 module TimerWithClock (
-		input  wire [3:0]  buttons_external_connection_export,   //   buttons_external_connection.export
-		input  wire        clk_clk,                              //                           clk.clk
-		output wire [9:0]  led_external_connection_export,       //       led_external_connection.export
-		output wire [13:0] sseg_hour_external_connection_export, // sseg_hour_external_connection.export
-		output wire [13:0] sseg_min_external_connection_export,  //  sseg_min_external_connection.export
-		output wire [13:0] sseg_sec_external_connection_export,  //  sseg_sec_external_connection.export
-		input  wire        switch_external_connection_export     //    switch_external_connection.export
+		input  wire [3:0] buttons_export,         //         buttons.export
+		input  wire       clk_clk,                //             clk.clk
+		output wire [9:0] leds_export,            //            leds.export
+		output wire [6:0] sseg_hour_tens_export,  //  sseg_hour_tens.export
+		output wire [6:0] sseg_hour_units_export, // sseg_hour_units.export
+		output wire [6:0] sseg_min_units_export,  //  sseg_min_units.export
+		output wire [6:0] sseg_mins_tens_export,  //  sseg_mins_tens.export
+		output wire [6:0] sseg_sec_tens_export,   //   sseg_sec_tens.export
+		output wire [6:0] sseg_sec_units_export,  //  sseg_sec_units.export
+		input  wire       switch_export           //          switch.export
 	);
 
 	wire         timerwithclock_debug_reset_request_reset;                     // TimerWithClock:debug_reset_request -> [rst_controller:reset_in0, rst_controller_001:reset_in0]
@@ -48,38 +51,53 @@ module TimerWithClock (
 	wire         mm_interconnect_0_sram_s1_write;                              // mm_interconnect_0:SRAM_s1_write -> SRAM:write
 	wire  [31:0] mm_interconnect_0_sram_s1_writedata;                          // mm_interconnect_0:SRAM_s1_writedata -> SRAM:writedata
 	wire         mm_interconnect_0_sram_s1_clken;                              // mm_interconnect_0:SRAM_s1_clken -> SRAM:clken
-	wire         mm_interconnect_0_led_s1_chipselect;                          // mm_interconnect_0:LED_s1_chipselect -> LED:chipselect
-	wire  [31:0] mm_interconnect_0_led_s1_readdata;                            // LED:readdata -> mm_interconnect_0:LED_s1_readdata
-	wire   [1:0] mm_interconnect_0_led_s1_address;                             // mm_interconnect_0:LED_s1_address -> LED:address
-	wire         mm_interconnect_0_led_s1_write;                               // mm_interconnect_0:LED_s1_write -> LED:write_n
-	wire  [31:0] mm_interconnect_0_led_s1_writedata;                           // mm_interconnect_0:LED_s1_writedata -> LED:writedata
-	wire         mm_interconnect_0_sseg_hour_s1_chipselect;                    // mm_interconnect_0:SSEG_HOUR_s1_chipselect -> SSEG_HOUR:chipselect
-	wire  [31:0] mm_interconnect_0_sseg_hour_s1_readdata;                      // SSEG_HOUR:readdata -> mm_interconnect_0:SSEG_HOUR_s1_readdata
-	wire   [1:0] mm_interconnect_0_sseg_hour_s1_address;                       // mm_interconnect_0:SSEG_HOUR_s1_address -> SSEG_HOUR:address
-	wire         mm_interconnect_0_sseg_hour_s1_write;                         // mm_interconnect_0:SSEG_HOUR_s1_write -> SSEG_HOUR:write_n
-	wire  [31:0] mm_interconnect_0_sseg_hour_s1_writedata;                     // mm_interconnect_0:SSEG_HOUR_s1_writedata -> SSEG_HOUR:writedata
-	wire         mm_interconnect_0_sseg_min_s1_chipselect;                     // mm_interconnect_0:SSEG_MIN_s1_chipselect -> SSEG_MIN:chipselect
-	wire  [31:0] mm_interconnect_0_sseg_min_s1_readdata;                       // SSEG_MIN:readdata -> mm_interconnect_0:SSEG_MIN_s1_readdata
-	wire   [1:0] mm_interconnect_0_sseg_min_s1_address;                        // mm_interconnect_0:SSEG_MIN_s1_address -> SSEG_MIN:address
-	wire         mm_interconnect_0_sseg_min_s1_write;                          // mm_interconnect_0:SSEG_MIN_s1_write -> SSEG_MIN:write_n
-	wire  [31:0] mm_interconnect_0_sseg_min_s1_writedata;                      // mm_interconnect_0:SSEG_MIN_s1_writedata -> SSEG_MIN:writedata
-	wire         mm_interconnect_0_sseg_sec_s1_chipselect;                     // mm_interconnect_0:SSEG_SEC_s1_chipselect -> SSEG_SEC:chipselect
-	wire  [31:0] mm_interconnect_0_sseg_sec_s1_readdata;                       // SSEG_SEC:readdata -> mm_interconnect_0:SSEG_SEC_s1_readdata
-	wire   [1:0] mm_interconnect_0_sseg_sec_s1_address;                        // mm_interconnect_0:SSEG_SEC_s1_address -> SSEG_SEC:address
-	wire         mm_interconnect_0_sseg_sec_s1_write;                          // mm_interconnect_0:SSEG_SEC_s1_write -> SSEG_SEC:write_n
-	wire  [31:0] mm_interconnect_0_sseg_sec_s1_writedata;                      // mm_interconnect_0:SSEG_SEC_s1_writedata -> SSEG_SEC:writedata
-	wire  [31:0] mm_interconnect_0_switch_s1_readdata;                         // SWITCH:readdata -> mm_interconnect_0:SWITCH_s1_readdata
-	wire   [1:0] mm_interconnect_0_switch_s1_address;                          // mm_interconnect_0:SWITCH_s1_address -> SWITCH:address
+	wire         mm_interconnect_0_leds_s1_chipselect;                         // mm_interconnect_0:LEDS_s1_chipselect -> LEDS:chipselect
+	wire  [31:0] mm_interconnect_0_leds_s1_readdata;                           // LEDS:readdata -> mm_interconnect_0:LEDS_s1_readdata
+	wire   [1:0] mm_interconnect_0_leds_s1_address;                            // mm_interconnect_0:LEDS_s1_address -> LEDS:address
+	wire         mm_interconnect_0_leds_s1_write;                              // mm_interconnect_0:LEDS_s1_write -> LEDS:write_n
+	wire  [31:0] mm_interconnect_0_leds_s1_writedata;                          // mm_interconnect_0:LEDS_s1_writedata -> LEDS:writedata
+	wire         mm_interconnect_0_sseg_hour_units_s1_chipselect;              // mm_interconnect_0:SSEG_HOUR_UNITS_s1_chipselect -> SSEG_HOUR_UNITS:chipselect
+	wire  [31:0] mm_interconnect_0_sseg_hour_units_s1_readdata;                // SSEG_HOUR_UNITS:readdata -> mm_interconnect_0:SSEG_HOUR_UNITS_s1_readdata
+	wire   [1:0] mm_interconnect_0_sseg_hour_units_s1_address;                 // mm_interconnect_0:SSEG_HOUR_UNITS_s1_address -> SSEG_HOUR_UNITS:address
+	wire         mm_interconnect_0_sseg_hour_units_s1_write;                   // mm_interconnect_0:SSEG_HOUR_UNITS_s1_write -> SSEG_HOUR_UNITS:write_n
+	wire  [31:0] mm_interconnect_0_sseg_hour_units_s1_writedata;               // mm_interconnect_0:SSEG_HOUR_UNITS_s1_writedata -> SSEG_HOUR_UNITS:writedata
+	wire         mm_interconnect_0_sseg_min_units_s1_chipselect;               // mm_interconnect_0:SSEG_MIN_UNITS_s1_chipselect -> SSEG_MIN_UNITS:chipselect
+	wire  [31:0] mm_interconnect_0_sseg_min_units_s1_readdata;                 // SSEG_MIN_UNITS:readdata -> mm_interconnect_0:SSEG_MIN_UNITS_s1_readdata
+	wire   [1:0] mm_interconnect_0_sseg_min_units_s1_address;                  // mm_interconnect_0:SSEG_MIN_UNITS_s1_address -> SSEG_MIN_UNITS:address
+	wire         mm_interconnect_0_sseg_min_units_s1_write;                    // mm_interconnect_0:SSEG_MIN_UNITS_s1_write -> SSEG_MIN_UNITS:write_n
+	wire  [31:0] mm_interconnect_0_sseg_min_units_s1_writedata;                // mm_interconnect_0:SSEG_MIN_UNITS_s1_writedata -> SSEG_MIN_UNITS:writedata
+	wire         mm_interconnect_0_sseg_sec_units_s1_chipselect;               // mm_interconnect_0:SSEG_SEC_UNITS_s1_chipselect -> SSEG_SEC_UNITS:chipselect
+	wire  [31:0] mm_interconnect_0_sseg_sec_units_s1_readdata;                 // SSEG_SEC_UNITS:readdata -> mm_interconnect_0:SSEG_SEC_UNITS_s1_readdata
+	wire   [1:0] mm_interconnect_0_sseg_sec_units_s1_address;                  // mm_interconnect_0:SSEG_SEC_UNITS_s1_address -> SSEG_SEC_UNITS:address
+	wire         mm_interconnect_0_sseg_sec_units_s1_write;                    // mm_interconnect_0:SSEG_SEC_UNITS_s1_write -> SSEG_SEC_UNITS:write_n
+	wire  [31:0] mm_interconnect_0_sseg_sec_units_s1_writedata;                // mm_interconnect_0:SSEG_SEC_UNITS_s1_writedata -> SSEG_SEC_UNITS:writedata
+	wire         mm_interconnect_0_sseg_mins_tens_s1_chipselect;               // mm_interconnect_0:SSEG_MINS_TENS_s1_chipselect -> SSEG_MINS_TENS:chipselect
+	wire  [31:0] mm_interconnect_0_sseg_mins_tens_s1_readdata;                 // SSEG_MINS_TENS:readdata -> mm_interconnect_0:SSEG_MINS_TENS_s1_readdata
+	wire   [1:0] mm_interconnect_0_sseg_mins_tens_s1_address;                  // mm_interconnect_0:SSEG_MINS_TENS_s1_address -> SSEG_MINS_TENS:address
+	wire         mm_interconnect_0_sseg_mins_tens_s1_write;                    // mm_interconnect_0:SSEG_MINS_TENS_s1_write -> SSEG_MINS_TENS:write_n
+	wire  [31:0] mm_interconnect_0_sseg_mins_tens_s1_writedata;                // mm_interconnect_0:SSEG_MINS_TENS_s1_writedata -> SSEG_MINS_TENS:writedata
 	wire  [31:0] mm_interconnect_0_buttons_s1_readdata;                        // BUTTONS:readdata -> mm_interconnect_0:BUTTONS_s1_readdata
 	wire   [1:0] mm_interconnect_0_buttons_s1_address;                         // mm_interconnect_0:BUTTONS_s1_address -> BUTTONS:address
-	wire         mm_interconnect_0_timer_0_s1_chipselect;                      // mm_interconnect_0:timer_0_s1_chipselect -> timer_0:chipselect
-	wire  [15:0] mm_interconnect_0_timer_0_s1_readdata;                        // timer_0:readdata -> mm_interconnect_0:timer_0_s1_readdata
-	wire   [2:0] mm_interconnect_0_timer_0_s1_address;                         // mm_interconnect_0:timer_0_s1_address -> timer_0:address
-	wire         mm_interconnect_0_timer_0_s1_write;                           // mm_interconnect_0:timer_0_s1_write -> timer_0:write_n
-	wire  [15:0] mm_interconnect_0_timer_0_s1_writedata;                       // mm_interconnect_0:timer_0_s1_writedata -> timer_0:writedata
+	wire         mm_interconnect_0_timer_s1_chipselect;                        // mm_interconnect_0:TIMER_s1_chipselect -> TIMER:chipselect
+	wire  [15:0] mm_interconnect_0_timer_s1_readdata;                          // TIMER:readdata -> mm_interconnect_0:TIMER_s1_readdata
+	wire   [2:0] mm_interconnect_0_timer_s1_address;                           // mm_interconnect_0:TIMER_s1_address -> TIMER:address
+	wire         mm_interconnect_0_timer_s1_write;                             // mm_interconnect_0:TIMER_s1_write -> TIMER:write_n
+	wire  [15:0] mm_interconnect_0_timer_s1_writedata;                         // mm_interconnect_0:TIMER_s1_writedata -> TIMER:writedata
+	wire         mm_interconnect_0_sseg_sec_tens_s1_chipselect;                // mm_interconnect_0:SSEG_SEC_TENS_s1_chipselect -> SSEG_SEC_TENS:chipselect
+	wire  [31:0] mm_interconnect_0_sseg_sec_tens_s1_readdata;                  // SSEG_SEC_TENS:readdata -> mm_interconnect_0:SSEG_SEC_TENS_s1_readdata
+	wire   [1:0] mm_interconnect_0_sseg_sec_tens_s1_address;                   // mm_interconnect_0:SSEG_SEC_TENS_s1_address -> SSEG_SEC_TENS:address
+	wire         mm_interconnect_0_sseg_sec_tens_s1_write;                     // mm_interconnect_0:SSEG_SEC_TENS_s1_write -> SSEG_SEC_TENS:write_n
+	wire  [31:0] mm_interconnect_0_sseg_sec_tens_s1_writedata;                 // mm_interconnect_0:SSEG_SEC_TENS_s1_writedata -> SSEG_SEC_TENS:writedata
+	wire         mm_interconnect_0_sseg_hour_tens_s1_chipselect;               // mm_interconnect_0:SSEG_HOUR_TENS_s1_chipselect -> SSEG_HOUR_TENS:chipselect
+	wire  [31:0] mm_interconnect_0_sseg_hour_tens_s1_readdata;                 // SSEG_HOUR_TENS:readdata -> mm_interconnect_0:SSEG_HOUR_TENS_s1_readdata
+	wire   [1:0] mm_interconnect_0_sseg_hour_tens_s1_address;                  // mm_interconnect_0:SSEG_HOUR_TENS_s1_address -> SSEG_HOUR_TENS:address
+	wire         mm_interconnect_0_sseg_hour_tens_s1_write;                    // mm_interconnect_0:SSEG_HOUR_TENS_s1_write -> SSEG_HOUR_TENS:write_n
+	wire  [31:0] mm_interconnect_0_sseg_hour_tens_s1_writedata;                // mm_interconnect_0:SSEG_HOUR_TENS_s1_writedata -> SSEG_HOUR_TENS:writedata
+	wire  [31:0] mm_interconnect_0_switch_s1_readdata;                         // SWITCH:readdata -> mm_interconnect_0:SWITCH_s1_readdata
+	wire   [1:0] mm_interconnect_0_switch_s1_address;                          // mm_interconnect_0:SWITCH_s1_address -> SWITCH:address
 	wire         irq_mapper_receiver0_irq;                                     // DEBUG:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] timerwithclock_irq_irq;                                       // irq_mapper:sender_irq -> TimerWithClock:irq
-	wire         rst_controller_reset_out_reset;                               // rst_controller:reset_out -> [BUTTONS:reset_n, DEBUG:rst_n, LED:reset_n, SSEG_HOUR:reset_n, SSEG_MIN:reset_n, SSEG_SEC:reset_n, SWITCH:reset_n, TimerWithClock:reset_n, irq_mapper:reset, mm_interconnect_0:TimerWithClock_reset_reset_bridge_in_reset_reset, rst_translator:in_reset, timer_0:reset_n]
+	wire         rst_controller_reset_out_reset;                               // rst_controller:reset_out -> [BUTTONS:reset_n, DEBUG:rst_n, LEDS:reset_n, SSEG_HOUR_TENS:reset_n, SSEG_HOUR_UNITS:reset_n, SSEG_MINS_TENS:reset_n, SSEG_MIN_UNITS:reset_n, SSEG_SEC_TENS:reset_n, SSEG_SEC_UNITS:reset_n, SWITCH:reset_n, TIMER:reset_n, TimerWithClock:reset_n, irq_mapper:reset, mm_interconnect_0:TimerWithClock_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                           // rst_controller:reset_req -> [TimerWithClock:reset_req, rst_translator:reset_req_in]
 	wire         rst_controller_001_reset_out_reset;                           // rst_controller_001:reset_out -> [SRAM:reset, mm_interconnect_0:SRAM_reset1_reset_bridge_in_reset_reset]
 	wire         rst_controller_001_reset_out_reset_req;                       // rst_controller_001:reset_req -> SRAM:reset_req
@@ -89,7 +107,7 @@ module TimerWithClock (
 		.reset_n  (~rst_controller_reset_out_reset),       //               reset.reset_n
 		.address  (mm_interconnect_0_buttons_s1_address),  //                  s1.address
 		.readdata (mm_interconnect_0_buttons_s1_readdata), //                    .readdata
-		.in_port  (buttons_external_connection_export)     // external_connection.export
+		.in_port  (buttons_export)                         // external_connection.export
 	);
 
 	TimerWithClock_DEBUG debug (
@@ -105,15 +123,15 @@ module TimerWithClock (
 		.av_irq         (irq_mapper_receiver0_irq)                               //               irq.irq
 	);
 
-	TimerWithClock_LED led (
-		.clk        (clk_clk),                             //                 clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),     //               reset.reset_n
-		.address    (mm_interconnect_0_led_s1_address),    //                  s1.address
-		.write_n    (~mm_interconnect_0_led_s1_write),     //                    .write_n
-		.writedata  (mm_interconnect_0_led_s1_writedata),  //                    .writedata
-		.chipselect (mm_interconnect_0_led_s1_chipselect), //                    .chipselect
-		.readdata   (mm_interconnect_0_led_s1_readdata),   //                    .readdata
-		.out_port   (led_external_connection_export)       // external_connection.export
+	TimerWithClock_LEDS leds (
+		.clk        (clk_clk),                              //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),      //               reset.reset_n
+		.address    (mm_interconnect_0_leds_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_leds_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_leds_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_leds_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_leds_s1_readdata),   //                    .readdata
+		.out_port   (leds_export)                           // external_connection.export
 	);
 
 	TimerWithClock_SRAM sram (
@@ -130,37 +148,70 @@ module TimerWithClock (
 		.freeze     (1'b0)                                    // (terminated)
 	);
 
-	TimerWithClock_SSEG_HOUR sseg_hour (
-		.clk        (clk_clk),                                   //                 clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),           //               reset.reset_n
-		.address    (mm_interconnect_0_sseg_hour_s1_address),    //                  s1.address
-		.write_n    (~mm_interconnect_0_sseg_hour_s1_write),     //                    .write_n
-		.writedata  (mm_interconnect_0_sseg_hour_s1_writedata),  //                    .writedata
-		.chipselect (mm_interconnect_0_sseg_hour_s1_chipselect), //                    .chipselect
-		.readdata   (mm_interconnect_0_sseg_hour_s1_readdata),   //                    .readdata
-		.out_port   (sseg_hour_external_connection_export)       // external_connection.export
+	TimerWithClock_SSEG_HOUR_TENS sseg_hour_tens (
+		.clk        (clk_clk),                                        //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                //               reset.reset_n
+		.address    (mm_interconnect_0_sseg_hour_tens_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_sseg_hour_tens_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_sseg_hour_tens_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_sseg_hour_tens_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_sseg_hour_tens_s1_readdata),   //                    .readdata
+		.out_port   (sseg_hour_tens_export)                           // external_connection.export
 	);
 
-	TimerWithClock_SSEG_HOUR sseg_min (
-		.clk        (clk_clk),                                  //                 clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),          //               reset.reset_n
-		.address    (mm_interconnect_0_sseg_min_s1_address),    //                  s1.address
-		.write_n    (~mm_interconnect_0_sseg_min_s1_write),     //                    .write_n
-		.writedata  (mm_interconnect_0_sseg_min_s1_writedata),  //                    .writedata
-		.chipselect (mm_interconnect_0_sseg_min_s1_chipselect), //                    .chipselect
-		.readdata   (mm_interconnect_0_sseg_min_s1_readdata),   //                    .readdata
-		.out_port   (sseg_min_external_connection_export)       // external_connection.export
+	TimerWithClock_SSEG_HOUR_TENS sseg_hour_units (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_sseg_hour_units_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_sseg_hour_units_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_sseg_hour_units_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_sseg_hour_units_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_sseg_hour_units_s1_readdata),   //                    .readdata
+		.out_port   (sseg_hour_units_export)                           // external_connection.export
 	);
 
-	TimerWithClock_SSEG_HOUR sseg_sec (
-		.clk        (clk_clk),                                  //                 clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),          //               reset.reset_n
-		.address    (mm_interconnect_0_sseg_sec_s1_address),    //                  s1.address
-		.write_n    (~mm_interconnect_0_sseg_sec_s1_write),     //                    .write_n
-		.writedata  (mm_interconnect_0_sseg_sec_s1_writedata),  //                    .writedata
-		.chipselect (mm_interconnect_0_sseg_sec_s1_chipselect), //                    .chipselect
-		.readdata   (mm_interconnect_0_sseg_sec_s1_readdata),   //                    .readdata
-		.out_port   (sseg_sec_external_connection_export)       // external_connection.export
+	TimerWithClock_SSEG_HOUR_TENS sseg_mins_tens (
+		.clk        (clk_clk),                                        //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                //               reset.reset_n
+		.address    (mm_interconnect_0_sseg_mins_tens_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_sseg_mins_tens_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_sseg_mins_tens_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_sseg_mins_tens_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_sseg_mins_tens_s1_readdata),   //                    .readdata
+		.out_port   (sseg_mins_tens_export)                           // external_connection.export
+	);
+
+	TimerWithClock_SSEG_HOUR_TENS sseg_min_units (
+		.clk        (clk_clk),                                        //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                //               reset.reset_n
+		.address    (mm_interconnect_0_sseg_min_units_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_sseg_min_units_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_sseg_min_units_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_sseg_min_units_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_sseg_min_units_s1_readdata),   //                    .readdata
+		.out_port   (sseg_min_units_export)                           // external_connection.export
+	);
+
+	TimerWithClock_SSEG_HOUR_TENS sseg_sec_tens (
+		.clk        (clk_clk),                                       //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),               //               reset.reset_n
+		.address    (mm_interconnect_0_sseg_sec_tens_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_sseg_sec_tens_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_sseg_sec_tens_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_sseg_sec_tens_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_sseg_sec_tens_s1_readdata),   //                    .readdata
+		.out_port   (sseg_sec_tens_export)                           // external_connection.export
+	);
+
+	TimerWithClock_SSEG_HOUR_TENS sseg_sec_units (
+		.clk        (clk_clk),                                        //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                //               reset.reset_n
+		.address    (mm_interconnect_0_sseg_sec_units_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_sseg_sec_units_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_sseg_sec_units_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_sseg_sec_units_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_sseg_sec_units_s1_readdata),   //                    .readdata
+		.out_port   (sseg_sec_units_export)                           // external_connection.export
 	);
 
 	TimerWithClock_SWITCH switch (
@@ -168,7 +219,18 @@ module TimerWithClock (
 		.reset_n  (~rst_controller_reset_out_reset),      //               reset.reset_n
 		.address  (mm_interconnect_0_switch_s1_address),  //                  s1.address
 		.readdata (mm_interconnect_0_switch_s1_readdata), //                    .readdata
-		.in_port  (switch_external_connection_export)     // external_connection.export
+		.in_port  (switch_export)                         // external_connection.export
+	);
+
+	TimerWithClock_TIMER timer (
+		.clk        (clk_clk),                               //   clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),       // reset.reset_n
+		.address    (mm_interconnect_0_timer_s1_address),    //    s1.address
+		.writedata  (mm_interconnect_0_timer_s1_writedata),  //      .writedata
+		.readdata   (mm_interconnect_0_timer_s1_readdata),   //      .readdata
+		.chipselect (mm_interconnect_0_timer_s1_chipselect), //      .chipselect
+		.write_n    (~mm_interconnect_0_timer_s1_write),     //      .write_n
+		.irq        ()                                       //   irq.irq
 	);
 
 	TimerWithClock_TimerWithClock timerwithclock (
@@ -200,17 +262,6 @@ module TimerWithClock (
 		.dummy_ci_port                       ()                                                              // custom_instruction_master.readra
 	);
 
-	TimerWithClock_timer_0 timer_0 (
-		.clk        (clk_clk),                                 //   clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),         // reset.reset_n
-		.address    (mm_interconnect_0_timer_0_s1_address),    //    s1.address
-		.writedata  (mm_interconnect_0_timer_0_s1_writedata),  //      .writedata
-		.readdata   (mm_interconnect_0_timer_0_s1_readdata),   //      .readdata
-		.chipselect (mm_interconnect_0_timer_0_s1_chipselect), //      .chipselect
-		.write_n    (~mm_interconnect_0_timer_0_s1_write),     //      .write_n
-		.irq        ()                                         //   irq.irq
-	);
-
 	TimerWithClock_mm_interconnect_0 mm_interconnect_0 (
 		.clk_0_clk_clk                                    (clk_clk),                                                      //                                  clk_0_clk.clk
 		.SRAM_reset1_reset_bridge_in_reset_reset          (rst_controller_001_reset_out_reset),                           //          SRAM_reset1_reset_bridge_in_reset.reset
@@ -236,11 +287,11 @@ module TimerWithClock (
 		.DEBUG_avalon_jtag_slave_writedata                (mm_interconnect_0_debug_avalon_jtag_slave_writedata),          //                                           .writedata
 		.DEBUG_avalon_jtag_slave_waitrequest              (mm_interconnect_0_debug_avalon_jtag_slave_waitrequest),        //                                           .waitrequest
 		.DEBUG_avalon_jtag_slave_chipselect               (mm_interconnect_0_debug_avalon_jtag_slave_chipselect),         //                                           .chipselect
-		.LED_s1_address                                   (mm_interconnect_0_led_s1_address),                             //                                     LED_s1.address
-		.LED_s1_write                                     (mm_interconnect_0_led_s1_write),                               //                                           .write
-		.LED_s1_readdata                                  (mm_interconnect_0_led_s1_readdata),                            //                                           .readdata
-		.LED_s1_writedata                                 (mm_interconnect_0_led_s1_writedata),                           //                                           .writedata
-		.LED_s1_chipselect                                (mm_interconnect_0_led_s1_chipselect),                          //                                           .chipselect
+		.LEDS_s1_address                                  (mm_interconnect_0_leds_s1_address),                            //                                    LEDS_s1.address
+		.LEDS_s1_write                                    (mm_interconnect_0_leds_s1_write),                              //                                           .write
+		.LEDS_s1_readdata                                 (mm_interconnect_0_leds_s1_readdata),                           //                                           .readdata
+		.LEDS_s1_writedata                                (mm_interconnect_0_leds_s1_writedata),                          //                                           .writedata
+		.LEDS_s1_chipselect                               (mm_interconnect_0_leds_s1_chipselect),                         //                                           .chipselect
 		.SRAM_s1_address                                  (mm_interconnect_0_sram_s1_address),                            //                                    SRAM_s1.address
 		.SRAM_s1_write                                    (mm_interconnect_0_sram_s1_write),                              //                                           .write
 		.SRAM_s1_readdata                                 (mm_interconnect_0_sram_s1_readdata),                           //                                           .readdata
@@ -248,28 +299,43 @@ module TimerWithClock (
 		.SRAM_s1_byteenable                               (mm_interconnect_0_sram_s1_byteenable),                         //                                           .byteenable
 		.SRAM_s1_chipselect                               (mm_interconnect_0_sram_s1_chipselect),                         //                                           .chipselect
 		.SRAM_s1_clken                                    (mm_interconnect_0_sram_s1_clken),                              //                                           .clken
-		.SSEG_HOUR_s1_address                             (mm_interconnect_0_sseg_hour_s1_address),                       //                               SSEG_HOUR_s1.address
-		.SSEG_HOUR_s1_write                               (mm_interconnect_0_sseg_hour_s1_write),                         //                                           .write
-		.SSEG_HOUR_s1_readdata                            (mm_interconnect_0_sseg_hour_s1_readdata),                      //                                           .readdata
-		.SSEG_HOUR_s1_writedata                           (mm_interconnect_0_sseg_hour_s1_writedata),                     //                                           .writedata
-		.SSEG_HOUR_s1_chipselect                          (mm_interconnect_0_sseg_hour_s1_chipselect),                    //                                           .chipselect
-		.SSEG_MIN_s1_address                              (mm_interconnect_0_sseg_min_s1_address),                        //                                SSEG_MIN_s1.address
-		.SSEG_MIN_s1_write                                (mm_interconnect_0_sseg_min_s1_write),                          //                                           .write
-		.SSEG_MIN_s1_readdata                             (mm_interconnect_0_sseg_min_s1_readdata),                       //                                           .readdata
-		.SSEG_MIN_s1_writedata                            (mm_interconnect_0_sseg_min_s1_writedata),                      //                                           .writedata
-		.SSEG_MIN_s1_chipselect                           (mm_interconnect_0_sseg_min_s1_chipselect),                     //                                           .chipselect
-		.SSEG_SEC_s1_address                              (mm_interconnect_0_sseg_sec_s1_address),                        //                                SSEG_SEC_s1.address
-		.SSEG_SEC_s1_write                                (mm_interconnect_0_sseg_sec_s1_write),                          //                                           .write
-		.SSEG_SEC_s1_readdata                             (mm_interconnect_0_sseg_sec_s1_readdata),                       //                                           .readdata
-		.SSEG_SEC_s1_writedata                            (mm_interconnect_0_sseg_sec_s1_writedata),                      //                                           .writedata
-		.SSEG_SEC_s1_chipselect                           (mm_interconnect_0_sseg_sec_s1_chipselect),                     //                                           .chipselect
+		.SSEG_HOUR_TENS_s1_address                        (mm_interconnect_0_sseg_hour_tens_s1_address),                  //                          SSEG_HOUR_TENS_s1.address
+		.SSEG_HOUR_TENS_s1_write                          (mm_interconnect_0_sseg_hour_tens_s1_write),                    //                                           .write
+		.SSEG_HOUR_TENS_s1_readdata                       (mm_interconnect_0_sseg_hour_tens_s1_readdata),                 //                                           .readdata
+		.SSEG_HOUR_TENS_s1_writedata                      (mm_interconnect_0_sseg_hour_tens_s1_writedata),                //                                           .writedata
+		.SSEG_HOUR_TENS_s1_chipselect                     (mm_interconnect_0_sseg_hour_tens_s1_chipselect),               //                                           .chipselect
+		.SSEG_HOUR_UNITS_s1_address                       (mm_interconnect_0_sseg_hour_units_s1_address),                 //                         SSEG_HOUR_UNITS_s1.address
+		.SSEG_HOUR_UNITS_s1_write                         (mm_interconnect_0_sseg_hour_units_s1_write),                   //                                           .write
+		.SSEG_HOUR_UNITS_s1_readdata                      (mm_interconnect_0_sseg_hour_units_s1_readdata),                //                                           .readdata
+		.SSEG_HOUR_UNITS_s1_writedata                     (mm_interconnect_0_sseg_hour_units_s1_writedata),               //                                           .writedata
+		.SSEG_HOUR_UNITS_s1_chipselect                    (mm_interconnect_0_sseg_hour_units_s1_chipselect),              //                                           .chipselect
+		.SSEG_MIN_UNITS_s1_address                        (mm_interconnect_0_sseg_min_units_s1_address),                  //                          SSEG_MIN_UNITS_s1.address
+		.SSEG_MIN_UNITS_s1_write                          (mm_interconnect_0_sseg_min_units_s1_write),                    //                                           .write
+		.SSEG_MIN_UNITS_s1_readdata                       (mm_interconnect_0_sseg_min_units_s1_readdata),                 //                                           .readdata
+		.SSEG_MIN_UNITS_s1_writedata                      (mm_interconnect_0_sseg_min_units_s1_writedata),                //                                           .writedata
+		.SSEG_MIN_UNITS_s1_chipselect                     (mm_interconnect_0_sseg_min_units_s1_chipselect),               //                                           .chipselect
+		.SSEG_MINS_TENS_s1_address                        (mm_interconnect_0_sseg_mins_tens_s1_address),                  //                          SSEG_MINS_TENS_s1.address
+		.SSEG_MINS_TENS_s1_write                          (mm_interconnect_0_sseg_mins_tens_s1_write),                    //                                           .write
+		.SSEG_MINS_TENS_s1_readdata                       (mm_interconnect_0_sseg_mins_tens_s1_readdata),                 //                                           .readdata
+		.SSEG_MINS_TENS_s1_writedata                      (mm_interconnect_0_sseg_mins_tens_s1_writedata),                //                                           .writedata
+		.SSEG_MINS_TENS_s1_chipselect                     (mm_interconnect_0_sseg_mins_tens_s1_chipselect),               //                                           .chipselect
+		.SSEG_SEC_TENS_s1_address                         (mm_interconnect_0_sseg_sec_tens_s1_address),                   //                           SSEG_SEC_TENS_s1.address
+		.SSEG_SEC_TENS_s1_write                           (mm_interconnect_0_sseg_sec_tens_s1_write),                     //                                           .write
+		.SSEG_SEC_TENS_s1_readdata                        (mm_interconnect_0_sseg_sec_tens_s1_readdata),                  //                                           .readdata
+		.SSEG_SEC_TENS_s1_writedata                       (mm_interconnect_0_sseg_sec_tens_s1_writedata),                 //                                           .writedata
+		.SSEG_SEC_TENS_s1_chipselect                      (mm_interconnect_0_sseg_sec_tens_s1_chipselect),                //                                           .chipselect
+		.SSEG_SEC_UNITS_s1_address                        (mm_interconnect_0_sseg_sec_units_s1_address),                  //                          SSEG_SEC_UNITS_s1.address
+		.SSEG_SEC_UNITS_s1_write                          (mm_interconnect_0_sseg_sec_units_s1_write),                    //                                           .write
+		.SSEG_SEC_UNITS_s1_readdata                       (mm_interconnect_0_sseg_sec_units_s1_readdata),                 //                                           .readdata
+		.SSEG_SEC_UNITS_s1_writedata                      (mm_interconnect_0_sseg_sec_units_s1_writedata),                //                                           .writedata
+		.SSEG_SEC_UNITS_s1_chipselect                     (mm_interconnect_0_sseg_sec_units_s1_chipselect),               //                                           .chipselect
 		.SWITCH_s1_address                                (mm_interconnect_0_switch_s1_address),                          //                                  SWITCH_s1.address
 		.SWITCH_s1_readdata                               (mm_interconnect_0_switch_s1_readdata),                         //                                           .readdata
-		.timer_0_s1_address                               (mm_interconnect_0_timer_0_s1_address),                         //                                 timer_0_s1.address
-		.timer_0_s1_write                                 (mm_interconnect_0_timer_0_s1_write),                           //                                           .write
-		.timer_0_s1_readdata                              (mm_interconnect_0_timer_0_s1_readdata),                        //                                           .readdata
-		.timer_0_s1_writedata                             (mm_interconnect_0_timer_0_s1_writedata),                       //                                           .writedata
-		.timer_0_s1_chipselect                            (mm_interconnect_0_timer_0_s1_chipselect),                      //                                           .chipselect
+		.TIMER_s1_address                                 (mm_interconnect_0_timer_s1_address),                           //                                   TIMER_s1.address
+		.TIMER_s1_write                                   (mm_interconnect_0_timer_s1_write),                             //                                           .write
+		.TIMER_s1_readdata                                (mm_interconnect_0_timer_s1_readdata),                          //                                           .readdata
+		.TIMER_s1_writedata                               (mm_interconnect_0_timer_s1_writedata),                         //                                           .writedata
+		.TIMER_s1_chipselect                              (mm_interconnect_0_timer_s1_chipselect),                        //                                           .chipselect
 		.TimerWithClock_debug_mem_slave_address           (mm_interconnect_0_timerwithclock_debug_mem_slave_address),     //             TimerWithClock_debug_mem_slave.address
 		.TimerWithClock_debug_mem_slave_write             (mm_interconnect_0_timerwithclock_debug_mem_slave_write),       //                                           .write
 		.TimerWithClock_debug_mem_slave_read              (mm_interconnect_0_timerwithclock_debug_mem_slave_read),        //                                           .read

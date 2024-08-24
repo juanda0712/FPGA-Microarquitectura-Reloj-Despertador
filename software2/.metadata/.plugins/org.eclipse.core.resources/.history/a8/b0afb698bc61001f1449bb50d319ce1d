@@ -10,7 +10,7 @@
 #define SSEG_MIN_UNITS_BASE 0x3080 // Dirección base de los segmentos LED de minutos (unidades)
 #define SSEG_SEC_TENS_BASE 0x3040 // Dirección base de los segmentos LED de segundos (decenas)
 #define SSEG_SEC_UNITS_BASE 0x3070 // Dirección base de los segmentos LED de segundos (unidades)
-#define SWITCH_BASE 0x3020 // Dirección base del switch
+#define SWITCH_BASE 0x3020 // Dirección base del switch (nuevo)
 
 // Variables para almacenar el tiempo y el estado del conteo
 uint8_t horas = 0, minutos = 0, segundos = 0;

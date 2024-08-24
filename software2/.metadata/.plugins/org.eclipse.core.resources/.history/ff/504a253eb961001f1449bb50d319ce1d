@@ -10,9 +10,8 @@
 #define SSEG_MIN_UNITS_BASE 0x3080 // Dirección base de los segmentos LED de minutos (unidades)
 #define SSEG_SEC_TENS_BASE 0x3040 // Dirección base de los segmentos LED de segundos (decenas)
 #define SSEG_SEC_UNITS_BASE 0x3070 // Dirección base de los segmentos LED de segundos (unidades)
-#define SWITCH_BASE 0x3020 // Dirección base del switch
+#define SWITCH_BASE 0x3020 // Dirección base del switch (nuevo)
 
-// Variables para almacenar el tiempo y el estado del conteo
 uint8_t horas = 0, minutos = 0, segundos = 0;
 uint8_t counting = 0; // 0: No contando, 1: Contando
 
@@ -74,15 +73,6 @@ uint32_t debounce_buttons() {
 // Función para leer el estado del switch
 uint32_t read_switch() {
     return IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE); // Lee el estado del switch
-}
-
-// Simulación de un retraso basado en ciclos de CPU
-void delay_ms(uint32_t ms) {
-    // Aproxime la duración en ciclos para retrasar
-    volatile uint32_t count;
-    for (count = 0; count < (ms * 1000); count++) {
-        // NOP para crear el retraso
-    }
 }
 
 int main() {
@@ -147,7 +137,6 @@ int main() {
 
         // Si se ha iniciado el conteo, actualizar los minutos y segundos
         if (counting) {
-            delay_ms(1000); // Simula un retraso de 1 segundo
             segundos++;
             if (segundos >= 60) {
                 segundos = 0;
@@ -162,11 +151,14 @@ int main() {
             }
 
             // Actualiza los segmentos LED con el nuevo tiempo
-                      update_hours();
-                      update_minutes();
-                      update_seconds();
-                  }
-              }
+            update_hours();
+            update_minutes();
+            update_seconds();
 
-              return 0;
-          }
+            // Pequeña demora para evitar una actualización demasiado rápida
+            for (int i = 0; i < 1000000; i++) { /* espera */ }
+        }
+    }
+
+    return 0;
+}

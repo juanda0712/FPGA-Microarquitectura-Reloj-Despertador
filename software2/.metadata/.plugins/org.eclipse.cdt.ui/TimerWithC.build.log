@@ -1,0 +1,9 @@
+09:54:56 **** Incremental Build of configuration Nios II for project TimerWithC ****
+wsl make all 
+Info: Building /mnt/c/Users/USUARIO/Documents/taller/FPGA-Microarquitectura-Reloj-Despertador/software/TimerWithC_bsp/
+make --no-print-directory -C /mnt/c/Users/USUARIO/Documents/taller/FPGA-Microarquitectura-Reloj-Despertador/software/TimerWithC_bsp/
+[BSP build complete]
+[TimerWithC build complete]
+
+09:54:57 Build Finished (took 1s.456ms)
+

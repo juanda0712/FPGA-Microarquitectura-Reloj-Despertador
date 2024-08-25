@@ -1,5 +1,5 @@
 Timing Analyzer report for TimerWithClock
-Sat Aug 24 20:56:24 2024
+Sun Aug 25 10:19:45 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -103,22 +103,22 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 2.04        ;
+; Average used               ; 2.00        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   9.8%      ;
-;     Processor 3            ;   9.7%      ;
-;     Processor 4            ;   9.6%      ;
-;     Processor 5            ;   9.4%      ;
-;     Processor 6            ;   9.4%      ;
-;     Processor 7            ;   9.3%      ;
-;     Processor 8            ;   9.3%      ;
-;     Processor 9            ;   9.3%      ;
-;     Processor 10           ;   9.3%      ;
-;     Processor 11           ;   9.3%      ;
-;     Processor 12           ;   9.3%      ;
+;     Processor 2            ;   9.5%      ;
+;     Processor 3            ;   9.4%      ;
+;     Processor 4            ;   9.3%      ;
+;     Processor 5            ;   9.1%      ;
+;     Processor 6            ;   9.0%      ;
+;     Processor 7            ;   9.0%      ;
+;     Processor 8            ;   9.0%      ;
+;     Processor 9            ;   9.0%      ;
+;     Processor 10           ;   9.0%      ;
+;     Processor 11           ;   9.0%      ;
+;     Processor 12           ;   9.0%      ;
 +----------------------------+-------------+
 
 
@@ -127,8 +127,8 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+--------+--------------------------+
 ; SDC File Path                                                             ; Status ; Read at                  ;
 +---------------------------------------------------------------------------+--------+--------------------------+
-; TimerWithClock/synthesis/submodules/altera_reset_controller.sdc           ; OK     ; Sat Aug 24 20:56:19 2024 ;
-; TimerWithClock/synthesis/submodules/TimerWithClock_TimerWithClock_cpu.sdc ; OK     ; Sat Aug 24 20:56:19 2024 ;
+; TimerWithClock/synthesis/submodules/altera_reset_controller.sdc           ; OK     ; Sun Aug 25 10:19:40 2024 ;
+; TimerWithClock/synthesis/submodules/TimerWithClock_TimerWithClock_cpu.sdc ; OK     ; Sun Aug 25 10:19:40 2024 ;
 +---------------------------------------------------------------------------+--------+--------------------------+
 
 
@@ -994,7 +994,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Aug 24 20:56:17 2024
+    Info: Processing started: Sun Aug 25 10:19:37 2024
 Info: Command: quartus_sta TimerWithClock -c TimerWithClock
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1194,9 +1194,9 @@ Info (332114): Report Metastability: Found 2 synchronizer chains.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5310 megabytes
-    Info: Processing ended: Sat Aug 24 20:56:24 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 5311 megabytes
+    Info: Processing ended: Sun Aug 25 10:19:45 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:09
 
 

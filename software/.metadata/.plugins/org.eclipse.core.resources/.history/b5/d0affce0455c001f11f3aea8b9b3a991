@@ -1,6 +1,0 @@
-#include <stdint.h>
-#include "io.h"
-#include "sys/alt_stdio.h"
-
-void update_clock();
-void init_timer();

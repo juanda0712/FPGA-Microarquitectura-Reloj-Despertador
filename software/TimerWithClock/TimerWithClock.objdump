@@ -1,0 +1,1006 @@
+
+TimerWithClock.elf:     file format elf32-littlenios2
+TimerWithClock.elf
+architecture: nios2:r1, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00001020
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00001000 paddr 0x00001000 align 2**12
+         filesz 0x00000020 memsz 0x00000020 flags r-x
+    LOAD off    0x00001020 vaddr 0x00001020 paddr 0x00001020 align 2**12
+         filesz 0x000006b4 memsz 0x000006b4 flags r-x
+    LOAD off    0x000016d4 vaddr 0x000016d4 paddr 0x000016dc align 2**12
+         filesz 0x00000008 memsz 0x00000008 flags rw-
+    LOAD off    0x000006e4 vaddr 0x000016e4 paddr 0x000016e4 align 2**12
+         filesz 0x00000000 memsz 0x00000014 flags rw-
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .entry        00000020  00001000  00001000  00001000  2**5
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .exceptions   00000000  00001020  00001020  000016dc  2**0
+                  CONTENTS
+  2 .text         000006a8  00001020  00001020  00001020  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .rodata       0000000c  000016c8  000016c8  000016c8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .rwdata       00000008  000016d4  000016dc  000016d4  2**2
+                  CONTENTS, ALLOC, LOAD, DATA, SMALL_DATA
+  5 .bss          00000014  000016e4  000016e4  000016e4  2**2
+                  ALLOC, SMALL_DATA
+  6 .SRAM         00000000  000016f8  000016f8  000016dc  2**0
+                  CONTENTS
+  7 .comment      0000002d  00000000  00000000  000016dc  2**0
+                  CONTENTS, READONLY
+  8 .debug_aranges 00000150  00000000  00000000  00001710  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+  9 .debug_info   00000ff2  00000000  00000000  00001860  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 10 .debug_abbrev 000007ea  00000000  00000000  00002852  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 11 .debug_line   00000abc  00000000  00000000  0000303c  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 12 .debug_frame  00000258  00000000  00000000  00003af8  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_str    000005f6  00000000  00000000  00003d50  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_alt_sim_info 00000010  00000000  00000000  00004348  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_ranges 00000020  00000000  00000000  00004358  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_loclists 00000540  00000000  00000000  00004378  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 17 .debug_rnglists 000000b3  00000000  00000000  000048b8  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 18 .debug_line_str 0000062b  00000000  00000000  0000496b  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 19 .thread_model 00000003  00000000  00000000  00005f8e  2**0
+                  CONTENTS, READONLY
+ 20 .cpu          0000000e  00000000  00000000  00005f91  2**0
+                  CONTENTS, READONLY
+ 21 .qsys         00000001  00000000  00000000  00005f9f  2**0
+                  CONTENTS, READONLY
+ 22 .simulation_enabled 00000001  00000000  00000000  00005fa0  2**0
+                  CONTENTS, READONLY
+ 23 .stderr_dev   00000005  00000000  00000000  00005fa1  2**0
+                  CONTENTS, READONLY
+ 24 .stdin_dev    00000005  00000000  00000000  00005fa6  2**0
+                  CONTENTS, READONLY
+ 25 .stdout_dev   00000005  00000000  00000000  00005fab  2**0
+                  CONTENTS, READONLY
+ 26 .sopc_system_name 0000000e  00000000  00000000  00005fb0  2**0
+                  CONTENTS, READONLY
+ 27 .quartus_project_dir 0000004e  00000000  00000000  00005fbe  2**0
+                  CONTENTS, READONLY
+ 28 .jdi          000052bb  00000000  00000000  0000600c  2**0
+                  CONTENTS, READONLY
+ 29 .sopcinfo     0006b670  00000000  00000000  0000b2c7  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00001000 l    d  .entry	00000000 .entry
+00001020 l    d  .exceptions	00000000 .exceptions
+00001020 l    d  .text	00000000 .text
+000016c8 l    d  .rodata	00000000 .rodata
+000016d4 l    d  .rwdata	00000000 .rwdata
+000016e4 l    d  .bss	00000000 .bss
+000016f8 l    d  .SRAM	00000000 .SRAM
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_alt_sim_info	00000000 .debug_alt_sim_info
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_loclists	00000000 .debug_loclists
+00000000 l    d  .debug_rnglists	00000000 .debug_rnglists
+00000000 l    d  .debug_line_str	00000000 .debug_line_str
+00000000 l    df *ABS*	00000000 crt0.o
+00001058 l       .text	00000000 alt_after_alt_main
+00000000 l    df *ABS*	00000000 hello_world_small.c
+000016c8 l     O .rodata	0000000a patterns.0
+00000000 l    df *ABS*	00000000 lib2-divmod.c
+00000000 l    df *ABS*	00000000 alt_load.c
+00000000 l    df *ABS*	00000000 alt_main.c
+00000000 l    df *ABS*	00000000 alt_sys_init.c
+00000000 l    df *ABS*	00000000 alt_dcache_flush_all.c
+00000000 l    df *ABS*	00000000 alt_icache_flush_all.c
+00000000 l    df *ABS*	00000000 altera_nios2_gen2_irq.c
+00000000 l    df *ABS*	00000000 memcpy.c
+000016e9 g     O .bss	00000001 horas
+00001640 g     F .text	0000002c alt_main
+000016dc g       *ABS*	00000000 __flash_rwdata_start
+00001698 g     F .text	00000008 altera_nios2_gen2_irq_init
+00001000 g     F .entry	0000000c __reset
+00001020 g       *ABS*	00000000 __flash_exceptions_start
+000016f0 g     O .bss	00000004 alt_argv
+000096d4 g       *ABS*	00000000 _gp
+00001180 g     F .text	00000008 read_switch
+00001158 g     F .text	00000028 debounce_buttons
+000016a0 g     F .text	00000028 memcpy
+000014fc g     F .text	00000064 .hidden __udivsi3
+00001190 g     F .text	00000020 init_timer
+000016e4 g     O .bss	00000001 segundos_alarma_activa
+000016f8 g       *ABS*	00000000 __bss_end
+00001690 g     F .text	00000004 alt_dcache_flush_all
+000016e7 g     O .bss	00000001 segundos
+000016dc g       *ABS*	00000000 __ram_rwdata_end
+000016d4 g       *ABS*	00000000 __ram_rodata_end
+000016d8 g     O .rwdata	00000004 DEBUG
+00001560 g     F .text	0000005c .hidden __umodsi3
+000016f8 g       *ABS*	00000000 end
+000016d4 g     O .rwdata	00000001 segundos_alarma
+00002000 g       *ABS*	00000000 __alt_stack_pointer
+00001020 g     F .text	0000003c _start
+0000168c g     F .text	00000004 alt_sys_init
+000016d4 g       *ABS*	00000000 __ram_rwdata_start
+000016c8 g       *ABS*	00000000 __ram_rodata_start
+000016e6 g     O .bss	00000001 counting
+00001188 g     F .text	00000008 read_leds
+000016f8 g       *ABS*	00000000 __alt_stack_base
+000016e4 g       *ABS*	00000000 __bss_start
+000011c8 g     F .text	00000240 main
+000016ec g     O .bss	00000004 alt_envp
+000016d5 g     O .rwdata	00000001 minutos_alarma
+00001408 g     F .text	00000080 .hidden __divsi3
+000016c8 g       *ABS*	00000000 __flash_rodata_start
+000016d6 g     O .rwdata	00000001 horas_alarma
+0000166c g     F .text	00000020 alt_irq_init
+000011b0 g     F .text	00000018 wait_for_timer
+000016f4 g     O .bss	00000004 alt_argc
+00001070 g     F .text	00000028 display_digit
+000016e5 g     O .bss	00000001 alarma_activa
+00001098 g     F .text	00000040 update_hours
+00001020 g       *ABS*	00000000 __ram_exceptions_start
+00001118 g     F .text	00000040 update_seconds
+000016dc g       *ABS*	00000000 _edata
+000016f8 g       *ABS*	00000000 _end
+00001020 g       *ABS*	00000000 __ram_exceptions_end
+000010d8 g     F .text	00000040 update_minutes
+00001488 g     F .text	00000074 .hidden __modsi3
+00002000 g       *ABS*	00000000 __alt_data_end
+0000100c g       .entry	00000000 _exit
+00001000 g       *ABS*	00000000 __alt_mem_SRAM
+00001694 g     F .text	00000004 alt_icache_flush_all
+0000105c g     F .text	00000014 num_to_seven_seg
+000016e8 g     O .bss	00000001 minutos
+000015bc g     F .text	00000084 alt_load
+
+
+
+Disassembly of section .entry:
+
+00001000 <__reset>:
+ * Jump to the _start entry point in the .text section if reset code
+ * is allowed or if optimizing for RTL simulation.
+ */
+#if defined(ALT_ALLOW_CODE_AT_RESET) || defined(ALT_SIM_OPTIMIZE)
+    /* Jump to the _start entry point in the .text section. */
+    movhi r1, %hi(_start)
+    1000:	00400034 	movhi	at,0
+    ori r1, r1, %lo(_start)
+    1004:	08440814 	ori	at,at,4128
+    jmp r1
+    1008:	0800683a 	jmp	at
+
+0000100c <_exit>:
+	...
+
+Disassembly of section .text:
+
+00001020 <_start>:
+
+    /*
+     * Now that the caches are initialized, set up the stack pointer and global pointer.
+     * The values provided by the linker are assumed to be correctly aligned.
+     */
+    movhi sp, %hi(__alt_stack_pointer)
+    1020:	06c00034 	movhi	sp,0
+    ori sp, sp, %lo(__alt_stack_pointer)
+    1024:	dec80014 	ori	sp,sp,8192
+    movhi gp, %hi(_gp)
+    1028:	06800034 	movhi	gp,0
+    ori gp, gp, %lo(_gp)
+    102c:	d6a5b514 	ori	gp,gp,38612
+ */
+#ifndef ALT_SIM_OPTIMIZE
+    /* Log that the BSS is about to be cleared. */
+    ALT_LOG_PUTS(alt_log_msg_bss)
+
+    movhi r2, %hi(__bss_start)
+    1030:	00800034 	movhi	r2,0
+    ori r2, r2, %lo(__bss_start)
+    1034:	1085b914 	ori	r2,r2,5860
+
+    movhi r3, %hi(__bss_end)
+    1038:	00c00034 	movhi	r3,0
+    ori r3, r3, %lo(__bss_end)
+    103c:	18c5be14 	ori	r3,r3,5880
+
+    beq r2, r3, 1f
+    1040:	10c00326 	beq	r2,r3,1050 <_start+0x30>
+
+0:
+    stw zero, (r2)
+    1044:	10000015 	stw	zero,0(r2)
+    addi r2, r2, 4
+    1048:	10800104 	addi	r2,r2,4
+    bltu r2, r3, 0b
+    104c:	10fffd36 	bltu	r2,r3,1044 <_start+0x24>
+     * section aren't defined until alt_load() has been called).
+     */
+    mov   et, zero
+#endif
+
+    call alt_load
+    1050:	00015bc0 	call	15bc <alt_load>
+
+    /* Log that alt_main is about to be called. */
+    ALT_LOG_PUTS(alt_log_msg_alt_main)
+
+    /* Call the C entry point. It should never return. */
+    call alt_main
+    1054:	00016400 	call	1640 <alt_main>
+
+00001058 <alt_after_alt_main>:
+
+    /* Wait in infinite loop in case alt_main does return. */
+alt_after_alt_main:
+    br alt_after_alt_main
+    1058:	003fff06 	br	1058 <alt_after_alt_main>
+
+0000105c <num_to_seven_seg>:
+        0x07, // 7
+        0x7F, // 8
+        0x6F  // 9
+    };
+
+    return ~patterns[num]; // Asegúrate de invertir si los LEDs son comunes al cátodo
+    105c:	00800034 	movhi	r2,0
+    1060:	2085883a 	add	r2,r4,r2
+    1064:	1085b203 	ldbu	r2,5832(r2)
+}
+    1068:	0084303a 	nor	r2,zero,r2
+    106c:	f800283a 	ret
+
+00001070 <display_digit>:
+
+// Función para mostrar un dígito en los segmentos LED
+void display_digit(uint32_t sseg_base, uint8_t digit) {
+    if (digit < 10) {
+    1070:	29403fcc 	andi	r5,r5,255
+    1074:	288002a8 	cmpgeui	r2,r5,10
+    1078:	1000061e 	bne	r2,zero,1094 <display_digit+0x24>
+    return ~patterns[num]; // Asegúrate de invertir si los LEDs son comunes al cátodo
+    107c:	00800034 	movhi	r2,0
+    1080:	2885883a 	add	r2,r5,r2
+    1084:	1085b203 	ldbu	r2,5832(r2)
+    1088:	0084303a 	nor	r2,zero,r2
+        IOWR_ALTERA_AVALON_PIO_DATA(sseg_base, num_to_seven_seg(digit));
+    108c:	10803fcc 	andi	r2,r2,255
+    1090:	20800035 	stwio	r2,0(r4)
+    }
+}
+    1094:	f800283a 	ret
+
+00001098 <update_hours>:
+
+// Función para actualizar los segmentos LED correspondientes
+void update_hours() {
+    display_digit(SSEG_HOUR_TENS_BASE, horas / 10);
+    1098:	d1200543 	ldbu	r4,-32747(gp)
+void update_hours() {
+    109c:	deffff04 	addi	sp,sp,-4
+    display_digit(SSEG_HOUR_TENS_BASE, horas / 10);
+    10a0:	01400284 	movi	r5,10
+void update_hours() {
+    10a4:	dfc00015 	stw	ra,0(sp)
+    display_digit(SSEG_HOUR_TENS_BASE, horas / 10);
+    10a8:	00014fc0 	call	14fc <__udivsi3>
+    10ac:	11403fcc 	andi	r5,r2,255
+    10b0:	010c0c04 	movi	r4,12336
+    10b4:	00010700 	call	1070 <display_digit>
+    display_digit(SSEG_HOUR_UNITS_BASE, horas % 10);
+    10b8:	d1200543 	ldbu	r4,-32747(gp)
+    10bc:	01400284 	movi	r5,10
+    10c0:	00015600 	call	1560 <__umodsi3>
+    10c4:	11403fcc 	andi	r5,r2,255
+    10c8:	010c2404 	movi	r4,12432
+}
+    10cc:	dfc00017 	ldw	ra,0(sp)
+    10d0:	dec00104 	addi	sp,sp,4
+    display_digit(SSEG_HOUR_UNITS_BASE, horas % 10);
+    10d4:	00010701 	jmpi	1070 <display_digit>
+
+000010d8 <update_minutes>:
+
+void update_minutes() {
+    display_digit(SSEG_MINS_TENS_BASE, minutos / 10);
+    10d8:	d1200503 	ldbu	r4,-32748(gp)
+void update_minutes() {
+    10dc:	deffff04 	addi	sp,sp,-4
+    display_digit(SSEG_MINS_TENS_BASE, minutos / 10);
+    10e0:	01400284 	movi	r5,10
+void update_minutes() {
+    10e4:	dfc00015 	stw	ra,0(sp)
+    display_digit(SSEG_MINS_TENS_BASE, minutos / 10);
+    10e8:	00014fc0 	call	14fc <__udivsi3>
+    10ec:	11403fcc 	andi	r5,r2,255
+    10f0:	010c1804 	movi	r4,12384
+    10f4:	00010700 	call	1070 <display_digit>
+    display_digit(SSEG_MIN_UNITS_BASE, minutos % 10);
+    10f8:	d1200503 	ldbu	r4,-32748(gp)
+    10fc:	01400284 	movi	r5,10
+    1100:	00015600 	call	1560 <__umodsi3>
+    1104:	11403fcc 	andi	r5,r2,255
+    1108:	010c2004 	movi	r4,12416
+}
+    110c:	dfc00017 	ldw	ra,0(sp)
+    1110:	dec00104 	addi	sp,sp,4
+    display_digit(SSEG_MIN_UNITS_BASE, minutos % 10);
+    1114:	00010701 	jmpi	1070 <display_digit>
+
+00001118 <update_seconds>:
+
+void update_seconds() {
+    display_digit(SSEG_SEC_TENS_BASE, segundos / 10);
+    1118:	d12004c3 	ldbu	r4,-32749(gp)
+void update_seconds() {
+    111c:	deffff04 	addi	sp,sp,-4
+    display_digit(SSEG_SEC_TENS_BASE, segundos / 10);
+    1120:	01400284 	movi	r5,10
+void update_seconds() {
+    1124:	dfc00015 	stw	ra,0(sp)
+    display_digit(SSEG_SEC_TENS_BASE, segundos / 10);
+    1128:	00014fc0 	call	14fc <__udivsi3>
+    112c:	11403fcc 	andi	r5,r2,255
+    1130:	010c1004 	movi	r4,12352
+    1134:	00010700 	call	1070 <display_digit>
+    display_digit(SSEG_SEC_UNITS_BASE, segundos % 10);
+    1138:	d12004c3 	ldbu	r4,-32749(gp)
+    113c:	01400284 	movi	r5,10
+    1140:	00015600 	call	1560 <__umodsi3>
+    1144:	11403fcc 	andi	r5,r2,255
+    1148:	010c1c04 	movi	r4,12400
+}
+    114c:	dfc00017 	ldw	ra,0(sp)
+    1150:	dec00104 	addi	sp,sp,4
+    display_digit(SSEG_SEC_UNITS_BASE, segundos % 10);
+    1154:	00010701 	jmpi	1070 <display_digit>
+
+00001158 <debounce_buttons>:
+
+// Función para agregar debouncing de botones
+uint32_t debounce_buttons() {
+    uint32_t stable_state;
+    uint32_t last_state = IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE);
+    1158:	010c1437 	ldwio	r4,12368(zero)
+    115c:	00c000b4 	movhi	r3,2
+    1160:	18e1a804 	addi	r3,r3,-31072
+    for (int i = 0; i < 100000; i++) { // Pequeño retraso para debouncing
+        stable_state = IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE);
+    1164:	008c1437 	ldwio	r2,12368(zero)
+    1168:	200b883a 	mov	r5,r4
+    116c:	1009883a 	mov	r4,r2
+        if (stable_state == last_state) {
+    1170:	11400226 	beq	r2,r5,117c <debounce_buttons+0x24>
+    for (int i = 0; i < 100000; i++) { // Pequeño retraso para debouncing
+    1174:	18ffffc4 	addi	r3,r3,-1
+    1178:	183ffa1e 	bne	r3,zero,1164 <debounce_buttons+0xc>
+            return stable_state;
+        }
+        last_state = stable_state;
+    }
+    return stable_state;
+}
+    117c:	f800283a 	ret
+
+00001180 <read_switch>:
+
+// Función para leer el estado del switch
+uint32_t read_switch() {
+    return IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE); // Lee el estado del switch
+}
+    1180:	008c0837 	ldwio	r2,12320(zero)
+    1184:	f800283a 	ret
+
+00001188 <read_leds>:
+
+// Función para leer el estado de los leds
+uint32_t read_leds() {
+    return IORD_ALTERA_AVALON_PIO_DATA(LEDS_BASE); // Lee el estado de los leds
+}
+    1188:	008c2837 	ldwio	r2,12448(zero)
+    118c:	f800283a 	ret
+
+00001190 <init_timer>:
+
+// Función para inicializar el temporizador
+void init_timer() {
+    // Configura el temporizador
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x00); // Detiene el temporizador
+    1190:	000c0135 	stwio	zero,12292(zero)
+    IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_BASE, (TIMER_LOAD_VALUE & 0xFFFF)); // Configura el periodo bajo
+    1194:	00bc1fd4 	movui	r2,61567
+    1198:	008c0235 	stwio	r2,12296(zero)
+    IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_BASE, (TIMER_LOAD_VALUE >> 16)); // Configura el periodo alto
+    119c:	0080be84 	movi	r2,762
+    11a0:	008c0335 	stwio	r2,12300(zero)
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x07); // Habilita el temporizador y genera una interrupción en cada overflow
+    11a4:	008001c4 	movi	r2,7
+    11a8:	008c0135 	stwio	r2,12292(zero)
+}
+    11ac:	f800283a 	ret
+
+000011b0 <wait_for_timer>:
+
+// Función para esperar hasta que el temporizador expire
+void wait_for_timer() {
+    while (!(IORD_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE) & 0x01)) {
+    11b0:	008c0037 	ldwio	r2,12288(zero)
+    11b4:	1080004c 	andi	r2,r2,1
+    11b8:	103ffd26 	beq	r2,zero,11b0 <wait_for_timer>
+        // Espera hasta que el temporizador se desborde
+    }
+    // Limpiar el estado de interrupción del temporizador
+    IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0x01);
+    11bc:	00800044 	movi	r2,1
+    11c0:	008c0035 	stwio	r2,12288(zero)
+}
+    11c4:	f800283a 	ret
+
+000011c8 <main>:
+
+int main() {
+    11c8:	defffb04 	addi	sp,sp,-20
+    11cc:	dfc00415 	stw	ra,16(sp)
+    11d0:	dcc00315 	stw	r19,12(sp)
+    11d4:	dc800215 	stw	r18,8(sp)
+    11d8:	dc400115 	stw	r17,4(sp)
+    11dc:	dc000015 	stw	r16,0(sp)
+    // Inicializa los LEDs como salida y botones como entrada
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(LEDS_BASE, 0xFF); // LEDs como salidas
+    11e0:	00803fc4 	movi	r2,255
+    11e4:	008c2935 	stwio	r2,12452(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(BUTTONS_BASE, 0x00); // Botones como entradas
+    11e8:	000c1535 	stwio	zero,12372(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SWITCH_BASE, 0x00); // Switch como entrada
+    11ec:	000c0935 	stwio	zero,12324(zero)
+
+    // Inicializa los segmentos LED como salidas
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_HOUR_TENS_BASE, 0xFF); // Salidas
+    11f0:	008c0d35 	stwio	r2,12340(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_HOUR_UNITS_BASE, 0xFF); // Salidas
+    11f4:	008c2535 	stwio	r2,12436(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_MINS_TENS_BASE, 0xFF); // Salidas
+    11f8:	008c1935 	stwio	r2,12388(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_MIN_UNITS_BASE, 0xFF); // Salidas
+    11fc:	008c2135 	stwio	r2,12420(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_SEC_TENS_BASE, 0xFF); // Salidas
+    1200:	008c1135 	stwio	r2,12356(zero)
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_SEC_UNITS_BASE, 0xFF); // Salidas
+    1204:	008c1d35 	stwio	r2,12404(zero)
+
+    // Inicializa el temporizador
+    init_timer();
+    1208:	00011900 	call	1190 <init_timer>
+
+    uint32_t prev_buttons_state = debounce_buttons(); // Guarda el estado inicial de los botones
+    120c:	00011580 	call	1158 <debounce_buttons>
+    1210:	1021883a 	mov	r16,r2
+    return IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE); // Lee el estado del switch
+    1214:	008c0837 	ldwio	r2,12320(zero)
+            IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 0x00); // Apaga los LEDs
+        }
+
+        // Si el switch está activado, inicia el conteo
+        if ((new_switch_state & 0x01) && !counting) {
+            counting = 1;
+    1218:	04c00044 	movi	r19,1
+    update_hours();
+    121c:	00010980 	call	1098 <update_hours>
+    update_minutes();
+    1220:	00010d80 	call	10d8 <update_minutes>
+    update_seconds();
+    1224:	00011180 	call	1118 <update_seconds>
+        uint32_t buttons_state = debounce_buttons(); // Lee el estado de los botones con debouncing
+    1228:	00011580 	call	1158 <debounce_buttons>
+    122c:	1023883a 	mov	r17,r2
+    return IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE); // Lee el estado del switch
+    1230:	048c0837 	ldwio	r18,12320(zero)
+    return IORD_ALTERA_AVALON_PIO_DATA(LEDS_BASE); // Lee el estado de los leds
+    1234:	008c2837 	ldwio	r2,12448(zero)
+        if ((buttons_state != prev_buttons_state) && !(new_switch_state & 0x01)) {
+    1238:	9480004c 	andi	r18,r18,1
+    123c:	84402a26 	beq	r16,r17,12e8 <main+0x120>
+    1240:	9000551e 	bne	r18,zero,1398 <main+0x1d0>
+            uint32_t changed_buttons = buttons_state ^ prev_buttons_state; // Detecta botones que cambiaron de estado
+    1244:	8460f03a 	xor	r16,r16,r17
+            if ((changed_buttons & 0x01) && (buttons_state & 0x01)) {
+    1248:	8080004c 	andi	r2,r16,1
+    124c:	10000826 	beq	r2,zero,1270 <main+0xa8>
+    1250:	8880004c 	andi	r2,r17,1
+    1254:	10000626 	beq	r2,zero,1270 <main+0xa8>
+                segundos = (segundos + 1) % 60; // Mantener en el rango 0-59
+    1258:	d12004c3 	ldbu	r4,-32749(gp)
+    125c:	01400f04 	movi	r5,60
+    1260:	21000044 	addi	r4,r4,1
+    1264:	00014880 	call	1488 <__modsi3>
+    1268:	d0a004c5 	stb	r2,-32749(gp)
+                update_seconds(); // Actualiza solo los segmentos de segundos
+    126c:	00011180 	call	1118 <update_seconds>
+            if ((changed_buttons & 0x02) && (buttons_state & 0x02)) {
+    1270:	8080008c 	andi	r2,r16,2
+    1274:	10000826 	beq	r2,zero,1298 <main+0xd0>
+    1278:	8880008c 	andi	r2,r17,2
+    127c:	10000626 	beq	r2,zero,1298 <main+0xd0>
+                minutos = (minutos + 1) % 60; // Mantener en el rango 0-59
+    1280:	d1200503 	ldbu	r4,-32748(gp)
+    1284:	01400f04 	movi	r5,60
+    1288:	21000044 	addi	r4,r4,1
+    128c:	00014880 	call	1488 <__modsi3>
+    1290:	d0a00505 	stb	r2,-32748(gp)
+                update_minutes(); // Actualiza solo los segmentos de minutos
+    1294:	00010d80 	call	10d8 <update_minutes>
+            if ((changed_buttons & 0x04) && (buttons_state & 0x04)) {
+    1298:	8080010c 	andi	r2,r16,4
+    129c:	10000826 	beq	r2,zero,12c0 <main+0xf8>
+    12a0:	8880010c 	andi	r2,r17,4
+    12a4:	10000626 	beq	r2,zero,12c0 <main+0xf8>
+                horas = (horas + 1) % 24; // Mantener en el rango 0-23
+    12a8:	d1200543 	ldbu	r4,-32747(gp)
+    12ac:	01400604 	movi	r5,24
+    12b0:	21000044 	addi	r4,r4,1
+    12b4:	00014880 	call	1488 <__modsi3>
+    12b8:	d0a00545 	stb	r2,-32747(gp)
+                update_hours(); // Actualiza solo los segmentos de horas
+    12bc:	00010980 	call	1098 <update_hours>
+            if ((changed_buttons & 0x08) && (buttons_state & 0x08)) {
+    12c0:	8400020c 	andi	r16,r16,8
+    12c4:	80000826 	beq	r16,zero,12e8 <main+0x120>
+    12c8:	8880020c 	andi	r2,r17,8
+    12cc:	10000626 	beq	r2,zero,12e8 <main+0x120>
+                horas_alarma = horas;
+    12d0:	d0a00543 	ldbu	r2,-32747(gp)
+    12d4:	d0a00085 	stb	r2,-32766(gp)
+                minutos_alarma = minutos;
+    12d8:	d0a00503 	ldbu	r2,-32748(gp)
+    12dc:	d0a00045 	stb	r2,-32767(gp)
+                segundos_alarma = segundos;
+    12e0:	d0a004c3 	ldbu	r2,-32749(gp)
+    12e4:	d0a00005 	stb	r2,-32768(gp)
+        if ((new_switch_state & 0x01) && !counting) {
+    12e8:	d0a00483 	ldbu	r2,-32750(gp)
+    12ec:	90002f1e 	bne	r18,zero,13ac <main+0x1e4>
+        }
+
+        // Si el switch está desactivado, detiene el conteo
+        if (!(new_switch_state & 0x01) && counting) {
+    12f0:	1000311e 	bne	r2,zero,13b8 <main+0x1f0>
+            counting = 0;
+        }
+
+        // Si la alarma está activa, incrementar el contador de segundos de la alarma
+        if (alarma_activa) {
+    12f4:	d0a00443 	ldbu	r2,-32751(gp)
+    12f8:	10000826 	beq	r2,zero,131c <main+0x154>
+            segundos_alarma_activa++;
+    12fc:	d0a00403 	ldbu	r2,-32752(gp)
+    1300:	10800044 	addi	r2,r2,1
+    1304:	d0a00405 	stb	r2,-32752(gp)
+
+            // Apaga los LEDs después de 30 segundos
+            if (segundos_alarma_activa == 30) {
+    1308:	10803fcc 	andi	r2,r2,255
+    130c:	10800798 	cmpnei	r2,r2,30
+    1310:	1000021e 	bne	r2,zero,131c <main+0x154>
+                IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 0x00);  // Apaga los LEDs
+    1314:	000c2835 	stwio	zero,12448(zero)
+                alarma_activa = 0;  // Reinicia el estado de la alarma
+    1318:	d0200445 	stb	zero,-32751(gp)
+            }
+        }
+
+        // Lógica de conteo y actualización del temporizador
+        if (counting) {
+    131c:	d0a00483 	ldbu	r2,-32750(gp)
+    1320:	10000a26 	beq	r2,zero,134c <main+0x184>
+            wait_for_timer();  // Espera hasta que el temporizador expire
+    1324:	00011b00 	call	11b0 <wait_for_timer>
+            segundos++;
+    1328:	d0a004c3 	ldbu	r2,-32749(gp)
+    132c:	10800044 	addi	r2,r2,1
+            if (segundos >= 60) {
+    1330:	10c03fcc 	andi	r3,r2,255
+    1334:	18c00f28 	cmpgeui	r3,r3,60
+    1338:	1800211e 	bne	r3,zero,13c0 <main+0x1f8>
+            segundos++;
+    133c:	d0a004c5 	stb	r2,-32749(gp)
+                    }
+                }
+            }
+
+            // Actualiza los segmentos LED con el nuevo tiempo
+            update_hours();
+    1340:	00010980 	call	1098 <update_hours>
+            update_minutes();
+    1344:	00010d80 	call	10d8 <update_minutes>
+            update_seconds();
+    1348:	00011180 	call	1118 <update_seconds>
+        }
+
+        // Enciende los LEDs cuando la alarma se activa
+        if ((horas_alarma == horas) && (minutos_alarma == minutos) && (segundos_alarma == segundos) && (new_switch_state & 0x01) && !alarma_activa) {
+    134c:	d0e00083 	ldbu	r3,-32766(gp)
+    1350:	d0a00543 	ldbu	r2,-32747(gp)
+    1354:	18800e1e 	bne	r3,r2,1390 <main+0x1c8>
+    1358:	d0e00043 	ldbu	r3,-32767(gp)
+    135c:	d0a00503 	ldbu	r2,-32748(gp)
+    1360:	18800b1e 	bne	r3,r2,1390 <main+0x1c8>
+    1364:	d0e00003 	ldbu	r3,-32768(gp)
+    1368:	d0a004c3 	ldbu	r2,-32749(gp)
+    136c:	1880081e 	bne	r3,r2,1390 <main+0x1c8>
+    1370:	90000726 	beq	r18,zero,1390 <main+0x1c8>
+    1374:	d0a00443 	ldbu	r2,-32751(gp)
+    1378:	1000051e 	bne	r2,zero,1390 <main+0x1c8>
+            IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 0x3FF); // Enciende los 10 LEDs (0x3FF = 1023)
+    137c:	0080ffc4 	movi	r2,1023
+    1380:	008c2835 	stwio	r2,12448(zero)
+            alarma_activa = 1;  // Marca la alarma como activa
+    1384:	00800044 	movi	r2,1
+    1388:	d0a00445 	stb	r2,-32751(gp)
+            segundos_alarma_activa = 0;  // Reinicia el contador de segundos de la alarma
+    138c:	d0200405 	stb	zero,-32752(gp)
+int main() {
+    1390:	8821883a 	mov	r16,r17
+    1394:	003fa406 	br	1228 <main+0x60>
+        if ((buttons_state != prev_buttons_state) && (new_switch_state & 0x01) && new_leds_state == 1023) {
+    1398:	1080ffd8 	cmpnei	r2,r2,1023
+    139c:	1000011e 	bne	r2,zero,13a4 <main+0x1dc>
+            IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 0x00); // Apaga los LEDs
+    13a0:	000c2835 	stwio	zero,12448(zero)
+int main() {
+    13a4:	8023883a 	mov	r17,r16
+    13a8:	003fcf06 	br	12e8 <main+0x120>
+        if ((new_switch_state & 0x01) && !counting) {
+    13ac:	103fd11e 	bne	r2,zero,12f4 <main+0x12c>
+            counting = 1;
+    13b0:	d4e00485 	stb	r19,-32750(gp)
+        if (!(new_switch_state & 0x01) && counting) {
+    13b4:	003fcf06 	br	12f4 <main+0x12c>
+            counting = 0;
+    13b8:	d0200485 	stb	zero,-32750(gp)
+    13bc:	003fcd06 	br	12f4 <main+0x12c>
+                minutos++;
+    13c0:	d0a00503 	ldbu	r2,-32748(gp)
+                segundos = 0;
+    13c4:	d02004c5 	stb	zero,-32749(gp)
+                minutos++;
+    13c8:	10800044 	addi	r2,r2,1
+                if (minutos >= 60) {
+    13cc:	10c03fcc 	andi	r3,r2,255
+    13d0:	18c00f28 	cmpgeui	r3,r3,60
+    13d4:	1800021e 	bne	r3,zero,13e0 <main+0x218>
+                minutos++;
+    13d8:	d0a00505 	stb	r2,-32748(gp)
+    13dc:	003fd806 	br	1340 <main+0x178>
+                    horas++;
+    13e0:	d0a00543 	ldbu	r2,-32747(gp)
+                    minutos = 0;
+    13e4:	d0200505 	stb	zero,-32748(gp)
+                    horas++;
+    13e8:	10800044 	addi	r2,r2,1
+                    if (horas >= 24) {
+    13ec:	10c03fcc 	andi	r3,r2,255
+    13f0:	18c00628 	cmpgeui	r3,r3,24
+    13f4:	1800021e 	bne	r3,zero,1400 <main+0x238>
+                    horas++;
+    13f8:	d0a00545 	stb	r2,-32747(gp)
+    13fc:	003fd006 	br	1340 <main+0x178>
+                        horas = 0;
+    1400:	d0200545 	stb	zero,-32747(gp)
+    1404:	003fce06 	br	1340 <main+0x178>
+
+00001408 <__divsi3>:
+    1408:	20001a16 	blt	r4,zero,1474 <__divsi3+0x6c>
+    140c:	000f883a 	mov	r7,zero
+    1410:	2800020e 	bge	r5,zero,141c <__divsi3+0x14>
+    1414:	014bc83a 	sub	r5,zero,r5
+    1418:	39c0005c 	xori	r7,r7,1
+    141c:	200d883a 	mov	r6,r4
+    1420:	00c00044 	movi	r3,1
+    1424:	2900092e 	bgeu	r5,r4,144c <__divsi3+0x44>
+    1428:	00800804 	movi	r2,32
+    142c:	00c00044 	movi	r3,1
+    1430:	00000106 	br	1438 <__divsi3+0x30>
+    1434:	10001226 	beq	r2,zero,1480 <__divsi3+0x78>
+    1438:	294b883a 	add	r5,r5,r5
+    143c:	10bfffc4 	addi	r2,r2,-1
+    1440:	18c7883a 	add	r3,r3,r3
+    1444:	293ffb36 	bltu	r5,r4,1434 <__divsi3+0x2c>
+    1448:	18000d26 	beq	r3,zero,1480 <__divsi3+0x78>
+    144c:	0005883a 	mov	r2,zero
+    1450:	31400236 	bltu	r6,r5,145c <__divsi3+0x54>
+    1454:	314dc83a 	sub	r6,r6,r5
+    1458:	10c4b03a 	or	r2,r2,r3
+    145c:	1806d07a 	srli	r3,r3,1
+    1460:	280ad07a 	srli	r5,r5,1
+    1464:	183ffa1e 	bne	r3,zero,1450 <__divsi3+0x48>
+    1468:	38000126 	beq	r7,zero,1470 <__divsi3+0x68>
+    146c:	0085c83a 	sub	r2,zero,r2
+    1470:	f800283a 	ret
+    1474:	0109c83a 	sub	r4,zero,r4
+    1478:	01c00044 	movi	r7,1
+    147c:	003fe406 	br	1410 <__divsi3+0x8>
+    1480:	0005883a 	mov	r2,zero
+    1484:	003ff806 	br	1468 <__divsi3+0x60>
+
+00001488 <__modsi3>:
+    1488:	20001716 	blt	r4,zero,14e8 <__modsi3+0x60>
+    148c:	000f883a 	mov	r7,zero
+    1490:	2005883a 	mov	r2,r4
+    1494:	2800010e 	bge	r5,zero,149c <__modsi3+0x14>
+    1498:	014bc83a 	sub	r5,zero,r5
+    149c:	00c00044 	movi	r3,1
+    14a0:	2900092e 	bgeu	r5,r4,14c8 <__modsi3+0x40>
+    14a4:	01800804 	movi	r6,32
+    14a8:	00c00044 	movi	r3,1
+    14ac:	00000106 	br	14b4 <__modsi3+0x2c>
+    14b0:	30001026 	beq	r6,zero,14f4 <__modsi3+0x6c>
+    14b4:	294b883a 	add	r5,r5,r5
+    14b8:	31bfffc4 	addi	r6,r6,-1
+    14bc:	18c7883a 	add	r3,r3,r3
+    14c0:	293ffb36 	bltu	r5,r4,14b0 <__modsi3+0x28>
+    14c4:	18000b26 	beq	r3,zero,14f4 <__modsi3+0x6c>
+    14c8:	1806d07a 	srli	r3,r3,1
+    14cc:	11400136 	bltu	r2,r5,14d4 <__modsi3+0x4c>
+    14d0:	1145c83a 	sub	r2,r2,r5
+    14d4:	280ad07a 	srli	r5,r5,1
+    14d8:	183ffb1e 	bne	r3,zero,14c8 <__modsi3+0x40>
+    14dc:	38000126 	beq	r7,zero,14e4 <__modsi3+0x5c>
+    14e0:	0085c83a 	sub	r2,zero,r2
+    14e4:	f800283a 	ret
+    14e8:	0109c83a 	sub	r4,zero,r4
+    14ec:	01c00044 	movi	r7,1
+    14f0:	003fe706 	br	1490 <__modsi3+0x8>
+    14f4:	2005883a 	mov	r2,r4
+    14f8:	003ff806 	br	14dc <__modsi3+0x54>
+
+000014fc <__udivsi3>:
+    14fc:	200d883a 	mov	r6,r4
+    1500:	2900152e 	bgeu	r5,r4,1558 <__udivsi3+0x5c>
+    1504:	28001416 	blt	r5,zero,1558 <__udivsi3+0x5c>
+    1508:	00800804 	movi	r2,32
+    150c:	00c00044 	movi	r3,1
+    1510:	00000206 	br	151c <__udivsi3+0x20>
+    1514:	10000e26 	beq	r2,zero,1550 <__udivsi3+0x54>
+    1518:	28000416 	blt	r5,zero,152c <__udivsi3+0x30>
+    151c:	294b883a 	add	r5,r5,r5
+    1520:	10bfffc4 	addi	r2,r2,-1
+    1524:	18c7883a 	add	r3,r3,r3
+    1528:	293ffa36 	bltu	r5,r4,1514 <__udivsi3+0x18>
+    152c:	18000826 	beq	r3,zero,1550 <__udivsi3+0x54>
+    1530:	0005883a 	mov	r2,zero
+    1534:	31400236 	bltu	r6,r5,1540 <__udivsi3+0x44>
+    1538:	314dc83a 	sub	r6,r6,r5
+    153c:	10c4b03a 	or	r2,r2,r3
+    1540:	1806d07a 	srli	r3,r3,1
+    1544:	280ad07a 	srli	r5,r5,1
+    1548:	183ffa1e 	bne	r3,zero,1534 <__udivsi3+0x38>
+    154c:	f800283a 	ret
+    1550:	0005883a 	mov	r2,zero
+    1554:	f800283a 	ret
+    1558:	00c00044 	movi	r3,1
+    155c:	003ff406 	br	1530 <__udivsi3+0x34>
+
+00001560 <__umodsi3>:
+    1560:	2005883a 	mov	r2,r4
+    1564:	2900132e 	bgeu	r5,r4,15b4 <__umodsi3+0x54>
+    1568:	28001216 	blt	r5,zero,15b4 <__umodsi3+0x54>
+    156c:	01800804 	movi	r6,32
+    1570:	00c00044 	movi	r3,1
+    1574:	00000206 	br	1580 <__umodsi3+0x20>
+    1578:	30000c26 	beq	r6,zero,15ac <__umodsi3+0x4c>
+    157c:	28000416 	blt	r5,zero,1590 <__umodsi3+0x30>
+    1580:	294b883a 	add	r5,r5,r5
+    1584:	31bfffc4 	addi	r6,r6,-1
+    1588:	18c7883a 	add	r3,r3,r3
+    158c:	293ffa36 	bltu	r5,r4,1578 <__umodsi3+0x18>
+    1590:	18000626 	beq	r3,zero,15ac <__umodsi3+0x4c>
+    1594:	1806d07a 	srli	r3,r3,1
+    1598:	11400136 	bltu	r2,r5,15a0 <__umodsi3+0x40>
+    159c:	1145c83a 	sub	r2,r2,r5
+    15a0:	280ad07a 	srli	r5,r5,1
+    15a4:	183ffb1e 	bne	r3,zero,1594 <__umodsi3+0x34>
+    15a8:	f800283a 	ret
+    15ac:	2005883a 	mov	r2,r4
+    15b0:	f800283a 	ret
+    15b4:	00c00044 	movi	r3,1
+    15b8:	003ff606 	br	1594 <__umodsi3+0x34>
+
+000015bc <alt_load>:
+ * there is no bootloader, so this application is responsible for loading to
+ * RAM any sections that are required.
+ */  
+
+void alt_load (void)
+{
+    15bc:	deffff04 	addi	sp,sp,-4
+
+static void ALT_INLINE alt_load_section (alt_u32* from, 
+                                         alt_u32* to, 
+                                         alt_u32* end)
+{
+  if (to != from)
+    15c0:	01000034 	movhi	r4,0
+    15c4:	01400034 	movhi	r5,0
+    15c8:	dfc00015 	stw	ra,0(sp)
+    15cc:	2105b504 	addi	r4,r4,5844
+    15d0:	2945b704 	addi	r5,r5,5852
+    15d4:	21400426 	beq	r4,r5,15e8 <alt_load+0x2c>
+  {
+    while( to != end )
+    {
+      *to++ = *from++;
+    15d8:	01800034 	movhi	r6,0
+    15dc:	3185b704 	addi	r6,r6,5852
+    15e0:	310dc83a 	sub	r6,r6,r4
+    15e4:	00016a00 	call	16a0 <memcpy>
+  if (to != from)
+    15e8:	01000034 	movhi	r4,0
+    15ec:	01400034 	movhi	r5,0
+    15f0:	21040804 	addi	r4,r4,4128
+    15f4:	29440804 	addi	r5,r5,4128
+    15f8:	21400426 	beq	r4,r5,160c <alt_load+0x50>
+      *to++ = *from++;
+    15fc:	01800034 	movhi	r6,0
+    1600:	31840804 	addi	r6,r6,4128
+    1604:	310dc83a 	sub	r6,r6,r4
+    1608:	00016a00 	call	16a0 <memcpy>
+  if (to != from)
+    160c:	01000034 	movhi	r4,0
+    1610:	01400034 	movhi	r5,0
+    1614:	2105b204 	addi	r4,r4,5832
+    1618:	2945b204 	addi	r5,r5,5832
+    161c:	21400426 	beq	r4,r5,1630 <alt_load+0x74>
+      *to++ = *from++;
+    1620:	01800034 	movhi	r6,0
+    1624:	3185b504 	addi	r6,r6,5844
+    1628:	310dc83a 	sub	r6,r6,r4
+    162c:	00016a00 	call	16a0 <memcpy>
+  
+  /*
+   * Now ensure that the caches are in synch.
+   */
+  
+  alt_dcache_flush_all();
+    1630:	00016900 	call	1690 <alt_dcache_flush_all>
+  alt_icache_flush_all();
+}
+    1634:	dfc00017 	ldw	ra,0(sp)
+    1638:	dec00104 	addi	sp,sp,4
+  alt_icache_flush_all();
+    163c:	00016941 	jmpi	1694 <alt_icache_flush_all>
+
+00001640 <alt_main>:
+ * devices/filesystems/components in the system; and call the entry point for
+ * the users application, i.e. main().
+ */
+
+void alt_main (void)
+{
+    1640:	deffff04 	addi	sp,sp,-4
+#endif
+
+  /* ALT LOG - please see HAL/sys/alt_log_printf.h for details */
+  ALT_LOG_PRINT_BOOT("[alt_main.c] Entering alt_main, calling alt_irq_init.\r\n");
+  /* Initialize the interrupt controller. */
+  alt_irq_init (NULL);
+    1644:	0009883a 	mov	r4,zero
+{
+    1648:	dfc00015 	stw	ra,0(sp)
+  alt_irq_init (NULL);
+    164c:	000166c0 	call	166c <alt_irq_init>
+  ALT_LOG_PRINT_BOOT("[alt_main.c] Done OS Init, calling alt_sem_create.\r\n");
+  ALT_SEM_CREATE (&alt_fd_list_lock, 1);
+
+  /* Initialize the device drivers/software components. */
+  ALT_LOG_PRINT_BOOT("[alt_main.c] Calling alt_sys_init.\r\n");
+  alt_sys_init();
+    1650:	000168c0 	call	168c <alt_sys_init>
+   */
+
+  ALT_LOG_PRINT_BOOT("[alt_main.c] Calling main.\r\n");
+
+#ifdef ALT_NO_EXIT
+  main (alt_argc, alt_argv, alt_envp);
+    1654:	d1a00617 	ldw	r6,-32744(gp)
+    1658:	d1600717 	ldw	r5,-32740(gp)
+    165c:	d1200817 	ldw	r4,-32736(gp)
+  close(STDOUT_FILENO);
+  exit (result);
+#endif
+
+  ALT_LOG_PRINT_BOOT("[alt_main.c] After main - we should not be here?.\r\n");
+}
+    1660:	dfc00017 	ldw	ra,0(sp)
+    1664:	dec00104 	addi	sp,sp,4
+  main (alt_argc, alt_argv, alt_envp);
+    1668:	00011c81 	jmpi	11c8 <main>
+
+0000166c <alt_irq_init>:
+ * The "base" parameter is ignored and only
+ * present for backwards-compatibility.
+ */
+
+void alt_irq_init ( const void* base )
+{
+    166c:	deffff04 	addi	sp,sp,-4
+    1670:	dfc00015 	stw	ra,0(sp)
+    ALTERA_NIOS2_GEN2_IRQ_INIT ( TIMERWITHCLOCK, TimerWithClock);
+    1674:	00016980 	call	1698 <altera_nios2_gen2_irq_init>
+ * alt_irq_cpu_enable_interrupts() enables the CPU to start taking interrupts.
+ */
+static ALT_INLINE void ALT_ALWAYS_INLINE 
+       alt_irq_cpu_enable_interrupts (void)
+{
+    NIOS2_WRITE_STATUS(NIOS2_STATUS_PIE_MSK
+    1678:	00800044 	movi	r2,1
+    167c:	1001703a 	wrctl	status,r2
+    alt_irq_cpu_enable_interrupts();
+}
+    1680:	dfc00017 	ldw	ra,0(sp)
+    1684:	dec00104 	addi	sp,sp,4
+    1688:	f800283a 	ret
+
+0000168c <alt_sys_init>:
+
+void alt_sys_init( void )
+{
+    ALTERA_AVALON_TIMER_INIT ( TIMER, TIMER);
+    ALTERA_AVALON_JTAG_UART_INIT ( DEBUG, DEBUG);
+}
+    168c:	f800283a 	ret
+
+00001690 <alt_dcache_flush_all>:
+  for (i = (char*) 0; i < (char*) NIOS2_DCACHE_SIZE; i+= NIOS2_DCACHE_LINE_SIZE)
+  { 
+    __asm__ volatile ("flushd (%0)" :: "r" (i));
+  }
+#endif /* NIOS2_DCACHE_SIZE > 0 */
+}
+    1690:	f800283a 	ret
+
+00001694 <alt_icache_flush_all>:
+void alt_icache_flush_all (void)
+{
+#if NIOS2_ICACHE_SIZE > 0
+  alt_icache_flush (0, NIOS2_ICACHE_SIZE);
+#endif
+}
+    1694:	f800283a 	ret
+
+00001698 <altera_nios2_gen2_irq_init>:
+ * To initialize the internal interrupt controller, just clear the IENABLE
+ * register so that all possible IRQs are disabled.
+ */
+void altera_nios2_gen2_irq_init(void) 
+{
+    NIOS2_WRITE_IENABLE(0);
+    1698:	000170fa 	wrctl	ienable,zero
+}
+    169c:	f800283a 	ret
+
+000016a0 <memcpy>:
+    16a0:	2005883a 	mov	r2,r4
+    16a4:	0007883a 	mov	r3,zero
+    16a8:	30c0011e 	bne	r6,r3,16b0 <memcpy+0x10>
+    16ac:	f800283a 	ret
+    16b0:	28cf883a 	add	r7,r5,r3
+    16b4:	39c00003 	ldbu	r7,0(r7)
+    16b8:	10c9883a 	add	r4,r2,r3
+    16bc:	18c00044 	addi	r3,r3,1
+    16c0:	21c00005 	stb	r7,0(r4)
+    16c4:	003ff806 	br	16a8 <memcpy+0x8>

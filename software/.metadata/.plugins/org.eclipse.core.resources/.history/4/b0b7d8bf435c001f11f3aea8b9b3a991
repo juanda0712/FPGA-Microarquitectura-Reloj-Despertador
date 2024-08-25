@@ -1,2 +1,0 @@
-#include "io.h"
-#include "sys/alt_stdio.h"

@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31) Path("C:/Users/USUARIO/Documents/taller/FPGA-Microarquitectura-Reloj-Despertador/output_files/") File("TimerWithClock.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31) Path("C:/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/output_files/") File("TimerWithClock.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

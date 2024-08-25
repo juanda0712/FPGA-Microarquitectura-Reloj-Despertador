@@ -5,6 +5,7 @@
 `timescale 1 ps / 1 ps
 module TimerWithClock (
 		input  wire [3:0] buttons_export,         //         buttons.export
+		output wire       buzzer_export,          //          buzzer.export
 		input  wire       clk_clk,                //             clk.clk
 		output wire [9:0] leds_export,            //            leds.export
 		output wire [6:0] sseg_hour_tens_export,  //  sseg_hour_tens.export
@@ -95,9 +96,14 @@ module TimerWithClock (
 	wire  [31:0] mm_interconnect_0_sseg_hour_tens_s1_writedata;                // mm_interconnect_0:SSEG_HOUR_TENS_s1_writedata -> SSEG_HOUR_TENS:writedata
 	wire  [31:0] mm_interconnect_0_switch_s1_readdata;                         // SWITCH:readdata -> mm_interconnect_0:SWITCH_s1_readdata
 	wire   [1:0] mm_interconnect_0_switch_s1_address;                          // mm_interconnect_0:SWITCH_s1_address -> SWITCH:address
+	wire         mm_interconnect_0_buzzer_s1_chipselect;                       // mm_interconnect_0:BUZZER_s1_chipselect -> BUZZER:chipselect
+	wire  [31:0] mm_interconnect_0_buzzer_s1_readdata;                         // BUZZER:readdata -> mm_interconnect_0:BUZZER_s1_readdata
+	wire   [1:0] mm_interconnect_0_buzzer_s1_address;                          // mm_interconnect_0:BUZZER_s1_address -> BUZZER:address
+	wire         mm_interconnect_0_buzzer_s1_write;                            // mm_interconnect_0:BUZZER_s1_write -> BUZZER:write_n
+	wire  [31:0] mm_interconnect_0_buzzer_s1_writedata;                        // mm_interconnect_0:BUZZER_s1_writedata -> BUZZER:writedata
 	wire         irq_mapper_receiver0_irq;                                     // DEBUG:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] timerwithclock_irq_irq;                                       // irq_mapper:sender_irq -> TimerWithClock:irq
-	wire         rst_controller_reset_out_reset;                               // rst_controller:reset_out -> [BUTTONS:reset_n, DEBUG:rst_n, LEDS:reset_n, SSEG_HOUR_TENS:reset_n, SSEG_HOUR_UNITS:reset_n, SSEG_MINS_TENS:reset_n, SSEG_MIN_UNITS:reset_n, SSEG_SEC_TENS:reset_n, SSEG_SEC_UNITS:reset_n, SWITCH:reset_n, TIMER:reset_n, TimerWithClock:reset_n, irq_mapper:reset, mm_interconnect_0:TimerWithClock_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
+	wire         rst_controller_reset_out_reset;                               // rst_controller:reset_out -> [BUTTONS:reset_n, BUZZER:reset_n, DEBUG:rst_n, LEDS:reset_n, SSEG_HOUR_TENS:reset_n, SSEG_HOUR_UNITS:reset_n, SSEG_MINS_TENS:reset_n, SSEG_MIN_UNITS:reset_n, SSEG_SEC_TENS:reset_n, SSEG_SEC_UNITS:reset_n, SWITCH:reset_n, TIMER:reset_n, TimerWithClock:reset_n, irq_mapper:reset, mm_interconnect_0:TimerWithClock_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                           // rst_controller:reset_req -> [TimerWithClock:reset_req, rst_translator:reset_req_in]
 	wire         rst_controller_001_reset_out_reset;                           // rst_controller_001:reset_out -> [SRAM:reset, mm_interconnect_0:SRAM_reset1_reset_bridge_in_reset_reset]
 	wire         rst_controller_001_reset_out_reset_req;                       // rst_controller_001:reset_req -> SRAM:reset_req
@@ -108,6 +114,17 @@ module TimerWithClock (
 		.address  (mm_interconnect_0_buttons_s1_address),  //                  s1.address
 		.readdata (mm_interconnect_0_buttons_s1_readdata), //                    .readdata
 		.in_port  (buttons_export)                         // external_connection.export
+	);
+
+	TimerWithClock_BUZZER buzzer (
+		.clk        (clk_clk),                                //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),        //               reset.reset_n
+		.address    (mm_interconnect_0_buzzer_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_buzzer_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_buzzer_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_buzzer_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_buzzer_s1_readdata),   //                    .readdata
+		.out_port   (buzzer_export)                           // external_connection.export
 	);
 
 	TimerWithClock_DEBUG debug (
@@ -280,6 +297,11 @@ module TimerWithClock (
 		.TimerWithClock_instruction_master_readdata       (timerwithclock_instruction_master_readdata),                   //                                           .readdata
 		.BUTTONS_s1_address                               (mm_interconnect_0_buttons_s1_address),                         //                                 BUTTONS_s1.address
 		.BUTTONS_s1_readdata                              (mm_interconnect_0_buttons_s1_readdata),                        //                                           .readdata
+		.BUZZER_s1_address                                (mm_interconnect_0_buzzer_s1_address),                          //                                  BUZZER_s1.address
+		.BUZZER_s1_write                                  (mm_interconnect_0_buzzer_s1_write),                            //                                           .write
+		.BUZZER_s1_readdata                               (mm_interconnect_0_buzzer_s1_readdata),                         //                                           .readdata
+		.BUZZER_s1_writedata                              (mm_interconnect_0_buzzer_s1_writedata),                        //                                           .writedata
+		.BUZZER_s1_chipselect                             (mm_interconnect_0_buzzer_s1_chipselect),                       //                                           .chipselect
 		.DEBUG_avalon_jtag_slave_address                  (mm_interconnect_0_debug_avalon_jtag_slave_address),            //                    DEBUG_avalon_jtag_slave.address
 		.DEBUG_avalon_jtag_slave_write                    (mm_interconnect_0_debug_avalon_jtag_slave_write),              //                                           .write
 		.DEBUG_avalon_jtag_slave_read                     (mm_interconnect_0_debug_avalon_jtag_slave_read),               //                                           .read

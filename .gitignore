@@ -7,3 +7,9 @@ incremental_db/
 *.o
 *.hex
 *.bin
+
+# Ignorar todo el contenido en la carpeta .metadata
+software/.metadata/
+
+# Ignorar archivos específicos
+TimerWithClock.qws

@@ -169,3 +169,101 @@ org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
 
 !ENTRY com.altera.sbtgui.launch 1 0 2024-08-25 17:06:18.130
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, wsl nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto]
+!SESSION 2024-08-24 21:24:55.117 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_392
+java.vendor=Temurin
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CR
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/23.1std/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/23.1std/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-08-24 21:25:48.236
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-08-24 21:25:57.160
+!MESSAGE Error: Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:292)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:274)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:486)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getLinkageID(PDOMLinkage.java:122)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.readLinkages(PDOM.java:432)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.loadDatabase(PDOM.java:415)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.<init>(PDOM.java:391)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:64)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:59)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:384)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:571)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-08-24 21:25:57.161
+!MESSAGE Error
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-08-24 21:25:57.195
+!MESSAGE Error: Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:292)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:274)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:486)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getLinkageID(PDOMLinkage.java:122)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.readLinkages(PDOM.java:432)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.loadDatabase(PDOM.java:415)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.<init>(PDOM.java:391)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:64)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:59)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:384)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:571)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-08-24 21:25:57.195
+!MESSAGE Error
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2024-08-24 21:26:00.444
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.launch 4 104 2024-08-24 21:26:40.896
+!MESSAGE The Nios II ELF executable does not exist. Please verify that the project TimeWithClock built successfully.
+!STACK 0
+java.io.FileNotFoundException: ELF file 'TimeWithClock.elf' not found.
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.getProgramFile(Nios2HardwareLaunchDelegate.java:1229)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:448)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:183)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 104 2024-08-24 21:26:40.896
+!MESSAGE ELF file 'TimeWithClock.elf' not found.
+!STACK 0
+java.io.FileNotFoundException: ELF file 'TimeWithClock.elf' not found.
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.getProgramFile(Nios2HardwareLaunchDelegate.java:1229)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:448)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:183)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

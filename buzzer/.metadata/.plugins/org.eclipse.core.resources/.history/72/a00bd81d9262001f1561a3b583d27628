@@ -1,0 +1,26 @@
+#include "io.h"
+#include "alt_types.h"
+#include "system.h"
+#include "unistd.h"
+#include "altera_avalon_pio_regs.h"
+
+#define BUZZER_BASE 0x0
+
+void generate_tone(int frequency, int duration_ms) {
+    int period_us = 1000000 / frequency;  // Periodo en microsegundos
+
+    for (int i = 0; i < (duration_ms * 1000) / period_us; i++) {
+        IOWR_ALTERA_AVALON_PIO_DATA(BUZZER_BASE, 1);
+        usleep(period_us / 2);  // Tiempo en alto
+        IOWR_ALTERA_AVALON_PIO_DATA(BUZZER_BASE, 0);
+        usleep(period_us / 2);  // Tiempo en bajo
+    }
+}
+
+int main() {
+    while (1) {
+        generate_tone(1000, 500);  // 1 kHz por 500 ms
+        usleep(500000);  // Pausa de 500 ms
+    }
+    return 0;
+}

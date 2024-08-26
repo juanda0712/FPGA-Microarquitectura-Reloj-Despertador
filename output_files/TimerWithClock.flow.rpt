@@ -1,5 +1,5 @@
 Flow report for TimerWithClock
-Fri Aug 16 20:29:49 2024
+Sun Aug 25 10:19:49 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Fri Aug 16 20:29:49 2024          ;
+; Flow Status                     ; Successful - Sun Aug 25 10:19:49 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; TimerWithClock                                 ;
 ; Top-level Entity Name           ; TimerWithClock                                 ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSXFC6D6F31C6                                 ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 860 / 41,910 ( 2 % )                           ;
-; Total registers                 ; 1261                                           ;
-; Total pins                      ; 58 / 499 ( 12 % )                              ;
+; Logic utilization (in ALMs)     ; 866 / 41,910 ( 2 % )                           ;
+; Total registers                 ; 1285                                           ;
+; Total pins                      ; 59 / 499 ( 12 % )                              ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 44,032 / 5,662,720 ( < 1 % )                   ;
 ; Total DSP Blocks                ; 0 / 112 ( 0 % )                                ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/16/2024 20:24:19 ;
+; Start date & time ; 08/25/2024 10:14:57 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TimerWithClock      ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+------------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                            ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 91756847530.172386145927512                                      ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 91756847530.172460249713968                                      ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                              ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                              ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                              ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -99,7 +99,7 @@ https://fpgasoftware.intel.com/eula.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                     ; --            ; --          ; --                                ;
 ; SLD_FILE                            ; TimerWithClock/synthesis/TimerWithClock.regmap                   ; --            ; --          ; --                                ;
 ; SLD_FILE                            ; TimerWithClock/synthesis/TimerWithClock.debuginfo                ; --            ; --          ; --                                ;
-; SLD_INFO                            ; QSYS_NAME TimerWithClock HAS_SOPCINFO 1 GENERATION_ID 1723838976 ; --            ; --          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME TimerWithClock HAS_SOPCINFO 1 GENERATION_ID 1724602341 ; --            ; --          ; --                                ;
 ; SOPCINFO_FILE                       ; TimerWithClock/synthesis/../../TimerWithClock.sopcinfo           ; --            ; --          ; --                                ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                               ; --            ; --          ; --                                ;
 +-------------------------------------+------------------------------------------------------------------+---------------+-------------+-----------------------------------+
@@ -110,12 +110,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:28     ; 1.0                     ; 5033 MB             ; 00:00:25                           ;
-; Fitter               ; 00:04:39     ; 1.0                     ; 7336 MB             ; 00:03:11                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 4891 MB             ; 00:00:06                           ;
-; Timing Analyzer      ; 00:00:07     ; 2.1                     ; 5331 MB             ; 00:00:11                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4756 MB             ; 00:00:02                           ;
-; Total                ; 00:05:23     ; --                      ; --                  ; 00:03:55                           ;
+; Analysis & Synthesis ; 00:00:31     ; 1.0                     ; 5038 MB             ; 00:00:25                           ;
+; Fitter               ; 00:03:53     ; 1.1                     ; 7358 MB             ; 00:03:11                           ;
+; Assembler            ; 00:00:10     ; 1.0                     ; 4884 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:08     ; 2.0                     ; 5311 MB             ; 00:00:09                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4753 MB             ; 00:00:01                           ;
+; Total                ; 00:04:45     ; --                      ; --                  ; 00:03:50                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

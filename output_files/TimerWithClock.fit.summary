@@ -1,13 +1,13 @@
-Fitter Status : Successful - Fri Aug 16 20:29:29 2024
+Fitter Status : Successful - Sun Aug 25 10:19:24 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : TimerWithClock
 Top-level Entity Name : TimerWithClock
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 860 / 41,910 ( 2 % )
-Total registers : 1261
-Total pins : 58 / 499 ( 12 % )
+Logic utilization (in ALMs) : 866 / 41,910 ( 2 % )
+Total registers : 1285
+Total pins : 59 / 499 ( 12 % )
 Total virtual pins : 0
 Total block memory bits : 44,032 / 5,662,720 ( < 1 % )
 Total RAM Blocks : 9 / 553 ( 2 % )

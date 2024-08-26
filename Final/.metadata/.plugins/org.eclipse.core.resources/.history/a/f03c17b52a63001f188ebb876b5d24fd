@@ -1,0 +1,225 @@
+#include "sys/alt_irq.h"
+#include "altera_avalon_timer_regs.h"
+#include "altera_avalon_pio_regs.h"
+#include "system.h"
+
+#define DEBOUNCE_DELAY_MS 50
+
+volatile int counting = 0;
+volatile int alarma_activa = 0;
+volatile int segundos_alarma_activa = 0;
+
+volatile int segundos = 0;
+volatile int minutos = 0;
+volatile int horas = 0;
+
+volatile int segundos_alarma = 0;
+volatile int minutos_alarma = 0;
+volatile int horas_alarma = 0;
+
+volatile int buzzer_sound_counter = 0;
+volatile int buzzer_state = 0;
+
+uint32_t buzzer_pwm_half_period = 50000; // Mitad del período del PWM en ticks de reloj (ajustable)
+uint32_t buzzer_sound_duration_ticks = 3000; // Duración del sonido en ticks de temporizador (ajustable)
+
+void init_timer() {
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x00); // Detén el temporizador
+    IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_BASE, 50000000 & 0xFFFF); // Período del timer (ajustable)
+    IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_BASE, (50000000 >> 16) & 0xFFFF);
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x07); // Activa el temporizador con interrupciones
+}
+
+void wait_for_timer() {
+    while (!(IORD_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE) & 0x01)) {
+        // Espera una interrupción del temporizador
+    }
+    IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0x01); // Limpia el flag de interrupción
+}
+
+uint32_t debounce_buttons() {
+    static uint32_t previous_state = 0xFFFFFFFF;
+    uint32_t current_state = IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE);
+
+    if (current_state == previous_state) {
+        alt_busy_sleep(DEBOUNCE_DELAY_MS * 1000);
+        current_state = IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE);
+    }
+
+    previous_state = current_state;
+    return current_state;
+}
+
+uint32_t read_switch() {
+    return IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE);
+}
+
+void update_seconds() {
+    IOWR_ALTERA_AVALON_PIO_DATA(SSEG_SEC_UNITS_BASE, segundos % 10);
+    IOWR_ALTERA_AVALON_PIO_DATA(SSEG_SEC_TENS_BASE, segundos / 10);
+}
+
+void update_minutes() {
+    IOWR_ALTERA_AVALON_PIO_DATA(SSEG_MIN_UNITS_BASE, minutos % 10);
+    IOWR_ALTERA_AVALON_PIO_DATA(SSEG_MINS_TENS_BASE, minutos / 10);
+}
+
+void update_hours() {
+    IOWR_ALTERA_AVALON_PIO_DATA(SSEG_HOUR_UNITS_BASE, horas % 10);
+    IOWR_ALTERA_AVALON_PIO_DATA(SSEG_HOUR_TENS_BASE, horas / 10);
+}
+
+void handle_pwm_buzzer() {
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x00); // Detén el temporizador
+    IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_BASE, buzzer_pwm_half_period & 0xFFFF);
+    IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_BASE, (buzzer_pwm_half_period >> 16) & 0xFFFF);
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x07); // Activa el temporizador con interrupciones
+
+    buzzer_sound_counter = 0;
+    buzzer_state = 0; // Inicialmente apagado
+    IOWR_ALTERA_AVALON_PIO_DATA(BUZZER_BASE, buzzer_state); // Apaga el buzzer inicialmente
+
+    while (buzzer_sound_counter < buzzer_sound_duration_ticks) {
+        // Espera una interrupción del temporizador
+        while (!(IORD_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE) & 0x01)) {
+            // Aquí puede agregar lógica adicional si es necesario, pero asegúrese de que no bloquee el sistema
+        }
+
+        // Alterna el estado del buzzer
+        buzzer_state = !buzzer_state;
+        IOWR_ALTERA_AVALON_PIO_DATA(BUZZER_BASE, buzzer_state);
+
+        buzzer_sound_counter++;
+
+        // Limpia el flag de interrupción del temporizador
+        IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0x01);
+
+        // Actualiza el reloj durante la generación de la señal PWM
+        if (counting) {
+            segundos++;
+            if (segundos >= 60) {
+                segundos = 0;
+                minutos++;
+                if (minutos >= 60) {
+                    minutos = 0;
+                    horas++;
+                    if (horas >= 24) {
+                        horas = 0;
+                    }
+                }
+            }
+            update_seconds();
+            update_minutes();
+            update_hours();
+        }
+    }
+
+    // Apaga el buzzer después de completar la duración del sonido
+    IOWR_ALTERA_AVALON_PIO_DATA(BUZZER_BASE, 0x00);
+
+    // Detén el temporizador después de completar el sonido
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE, 0x00);
+}
+
+int main() {
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(LEDS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(BUTTONS_BASE, 0x00);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SWITCH_BASE, 0x00);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_HOUR_TENS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_HOUR_UNITS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_MINS_TENS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_MIN_UNITS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_SEC_TENS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(SSEG_SEC_UNITS_BASE, 0xFF);
+    IOWR_ALTERA_AVALON_PIO_DIRECTION(BUZZER_BASE, 0x01);  // Salida para el buzzer
+
+    init_timer();
+
+    uint32_t prev_buttons_state = debounce_buttons();
+    uint32_t switch_state = read_switch();
+
+    update_hours();
+    update_minutes();
+    update_seconds();
+
+    while (1) {
+        uint32_t buttons_state = debounce_buttons();
+        uint32_t new_switch_state = read_switch();
+        uint32_t new_leds_state = IORD_ALTERA_AVALON_PIO_DATA(LEDS_BASE);
+
+        if ((buttons_state != prev_buttons_state) && !(new_switch_state & 0x01)) {
+            uint32_t changed_buttons = buttons_state ^ prev_buttons_state;
+            prev_buttons_state = buttons_state;
+
+            if ((changed_buttons & 0x01) && (buttons_state & 0x01)) {
+                segundos = (segundos + 1) % 60;
+                update_seconds();
+            }
+
+            if ((changed_buttons & 0x02) && (buttons_state & 0x02)) {
+                minutos = (minutos + 1) % 60;
+                update_minutes();
+            }
+
+            if ((changed_buttons & 0x04) && (buttons_state & 0x04)) {
+                horas = (horas + 1) % 24;
+                update_hours();
+            }
+
+            if ((changed_buttons & 0x08) && (buttons_state & 0x08)) {
+                horas_alarma = horas;
+                minutos_alarma = minutos;
+                segundos_alarma = segundos;
+            }
+        }
+
+        if ((buttons_state != prev_buttons_state) && (new_switch_state & 0x01) && new_leds_state == 1023) {
+            IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 0x00);
+        }
+
+        if ((new_switch_state & 0x01) && !counting) {
+            counting = 1;
+        }
+
+        if (!(new_switch_state & 0x01) && counting) {
+            counting = 0;
+        }
+
+        if (alarma_activa) {
+            segundos_alarma_activa++;
+
+            if (segundos_alarma_activa == 30) {
+                IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 0x00);
+                alarma_activa = 0;
+            }
+        }
+
+        if (counting) {
+            wait_for_timer();
+            segundos++;
+            if (segundos >= 60) {
+                segundos = 0;
+                minutos++;
+                if (minutos >= 60) {
+                    minutos = 0;
+                    horas++;
+                    if (horas >= 24) {
+                        horas = 0;
+                    }
+                }
+            }
+            update_seconds();
+            update_minutes();
+            update_hours();
+
+            if (horas == horas_alarma && minutos == minutos_alarma && segundos == segundos_alarma) {
+                IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE, 1023);
+                alarma_activa = 1;
+                segundos_alarma_activa = 0;
+                handle_pwm_buzzer();
+            }
+        }
+    }
+
+    return 0;
+}

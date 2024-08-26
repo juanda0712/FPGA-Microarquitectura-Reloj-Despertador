@@ -10,6 +10,5 @@ incremental_db/
 
 # Ignorar todo el contenido en la carpeta .metadata
 software/.metadata/
+software/RemoteSystemsTempFiles/
 
-# Ignorar archivos específicos
-TimerWithClock.qws

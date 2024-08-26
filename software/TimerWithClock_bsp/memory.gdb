@@ -1,9 +1,9 @@
 # memory.gdb - GDB memory region definitions
 #
 # Machine generated for CPU 'TimerWithClock' in SOPC Builder design 'TimerWithClock'
-# SOPC Builder design path: c:/Users/USUARIO/Downloads/operativos/FPGA-Microarquitectura-Reloj-Despertador/TimerWithClock.sopcinfo
+# SOPC Builder design path: c:/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/TimerWithClock.sopcinfo
 #
-# Generated: Sat Aug 24 21:30:07 CST 2024
+# Generated: Sun Aug 25 19:20:07 CST 2024
 
 # DO NOT MODIFY THIS FILE
 #

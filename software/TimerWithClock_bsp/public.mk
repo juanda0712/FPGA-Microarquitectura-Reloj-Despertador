@@ -86,7 +86,7 @@ ACDS_VERSION := 23.1
 
 # Qsys--generated SOPCINFO file. Required for resolving node instance ID's with 
 # design component names. 
-SOPCINFO_FILE := c:/Users/USUARIO/Downloads/operativos/FPGA-Microarquitectura-Reloj-Despertador/TimerWithClock.sopcinfo
+SOPCINFO_FILE := c:/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/TimerWithClock.sopcinfo
 
 # Big-Endian operation. 
 # setting BIG_ENDIAN is false

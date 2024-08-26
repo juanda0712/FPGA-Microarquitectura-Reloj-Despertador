@@ -2,11 +2,11 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>24/08/2024 09:30:07 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1724556607190</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\USUARIO\Downloads\operativos\FPGA-Microarquitectura-Reloj-Despertador\software\TimerWithClock_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Aug 25, 2024 7:20:06 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1724635206674</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\JuanDa\Documents\SEMESTRES\2024IIS\PSO\TimerWithClock\software\TimerWithClock_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
-        <SopcDesignFile>C:\Users\USUARIO\Downloads\operativos\FPGA-Microarquitectura-Reloj-Despertador\TimerWithClock.sopcinfo</SopcDesignFile>
+        <SopcDesignFile>C:\Users\JuanDa\Documents\SEMESTRES\2024IIS\PSO\TimerWithClock\TimerWithClock.sopcinfo</SopcDesignFile>
         <SystemFileHash>9b959774933251f6035041e3f92c211bafeda64bb7777422e36b3e65d3464</SystemFileHash>
         <JdiFile>default</JdiFile>
         <Cpu>TimerWithClock</Cpu>

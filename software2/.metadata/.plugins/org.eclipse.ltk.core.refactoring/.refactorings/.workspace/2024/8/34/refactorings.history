@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;TimerWithClock&apos;" deleteContents="false" description="Delete resource &apos;TimerWithClock&apos;" element1="/TimerWithClock" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1724556540865"/>&#x0A;<refactoring comment="Delete resource &apos;TimerWithClock_bsp&apos;" deleteContents="false" description="Delete resource &apos;TimerWithClock_bsp&apos;" element1="/TimerWithClock_bsp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1724556546694"/>
-</session>

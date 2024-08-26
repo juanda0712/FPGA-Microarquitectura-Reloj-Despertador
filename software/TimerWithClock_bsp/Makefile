@@ -101,7 +101,7 @@ ACDS_VERSION := 23.1
 # BUILD_NUMBER: 993
 
 SETTINGS_FILE := settings.bsp
-SOPC_FILE := c:/Users/USUARIO/Downloads/operativos/FPGA-Microarquitectura-Reloj-Despertador/TimerWithClock.sopcinfo
+SOPC_FILE := c:/Users/JuanDa/Documents/SEMESTRES/2024IIS/PSO/TimerWithClock/TimerWithClock.sopcinfo
 
 #-------------------------------------------------------------------------------
 #                             TOOL & COMMAND DEFINITIONS
